@@ -90,23 +90,17 @@ class Pirate_Switch_Public {
 
 	}
 	
-	public function ana() {
+	public function pirate_switch_display_block() {
 		
 		?>
+		<div id="pirate-switch-open-icon">
+			<a href="#">
+				<img src="<?php echo plugin_dir_url( __FILE__ ); ?>img/cog.png" alt="">
+			</a>
+		</div>
+		
+		<div id="pirate-switch-main-box" class="pirate-switch-hide">
 
-		<div id="sw-main-box" class="hide-me">
-
-			<div id="sw-open-icon">
-				<a href="#">
-					<img src="<?php echo plugin_dir_url( __FILE__ ); ?>img/cog.png" alt="">
-				</a>
-			</div>
-
-			<p class="sw-title"><span>layout</span>
-			</p>
-			<section class="sw-layout">
-
-			</section>
 
 		</div>
 
