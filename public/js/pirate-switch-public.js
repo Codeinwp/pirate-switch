@@ -3,17 +3,9 @@ jQuery( document ).ready( function($) {
 
     $( '#pirate-switch-open-icon' ).on( "click", function() {
 
-		var $switchMainBox 	= $( '#pirate-switch-main-box' ),
-			openClass 		= 'pirate-switch-opened',
-			$switchOpen 	= $( 'pirate-switch-open' );
-		
-
-		setTimeout( function(){ 
-			$switchOpen.toggleClass( 'pirate-switch-processing' );
-			$switchMainBox.toggleClass( openClass );
-		}, 300, function() {
-			$switchOpen.toggleClass( 'pirate-switch-processing' );
-		} );
+		var $switchMainBox = $( '#pirate-switch-main-box' ),
+			hideClass = 'pirate-switch-opened';
+		$switchMainBox.toggleClass( hideClass );
 
 	});
 

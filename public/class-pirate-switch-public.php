@@ -103,19 +103,10 @@ class Pirate_Switch_Public {
 			<div id="pirate-switch-open-icon" class="pirate-switch-open"></div>
 
 			<div id="pirate-switch-content" class="pirate-switch-content">
-				<div class="pirate-switch-content">
 
-					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
-					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
-					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
-					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
-					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
-					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
-					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
-					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
-					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+					<br>Content:
+					<br><br><br>
 
-				</div>
 			</div>
 
 		</div>
