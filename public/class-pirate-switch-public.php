@@ -65,6 +65,8 @@ class Pirate_Switch_Public {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pirate-switch-public.css', array(), $this->version, 'all' );
 
+		wp_enqueue_style( $this->plugin_name . '-font-awesome', plugin_dir_url( __FILE__ ) . 'css/font-awesome.min.css', array(), '4.5.0', 'all' );
+
 	}
 
 	/**
@@ -88,19 +90,33 @@ class Pirate_Switch_Public {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pirate-switch-public.js', array( 'jquery' ), $this->version, false );
 
+
 	}
 	
 	public function pirate_switch_display_block() {
 		
 		?>
-		<div id="pirate-switch-open-icon">
-			<a href="#">
-				<img src="<?php echo plugin_dir_url( __FILE__ ); ?>img/cog.png" alt="">
-			</a>
-		</div>
-		
-		<div id="pirate-switch-main-box" class="pirate-switch-hide">
 
+		
+		<div id="pirate-switch-main-box" class="pirate-switch-container">
+
+			<div id="pirate-switch-open-icon" class="pirate-switch-open"></div>
+
+			<div id="pirate-switch-content" class="pirate-switch-content">
+				<div class="pirate-switch-content">
+
+					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+					<br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br><br>asdasdas<br>
+
+				</div>
+			</div>
 
 		</div>
 
