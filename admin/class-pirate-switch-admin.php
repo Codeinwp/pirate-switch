@@ -88,8 +88,23 @@ class Pirate_Switch_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+		
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pirate-switch-admin.js', array( 'jquery' ), $this->version, false );
+	}
+	
+	/**
+	 * Add image sizes
+	 *
+	 * @since    1.0.0
+	 */
+	public function pirate_switch_image_sizes() {
+		add_image_size( 'pirate_switch_layout', 128, 100, true );
+	}
+	
+	public function pirate_switch_media_uploader_custom_sizes( $sizes ) {
+		return array_merge( $sizes, array(
+			'pirate_switch_layout' => esc_html__('Pirate Switch Layout Size','pirate-switch'),	
+		) );
 	}
 	
 }

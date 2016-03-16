@@ -137,7 +137,9 @@ class Pirate_Switch {
 
 		$plugin_admin = new Pirate_Switch_Admin( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'customize_controls_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'init', $plugin_admin, 'pirate_switch_image_sizes' );
+		$this->loader->add_filter( 'image_size_names_choose', $plugin_admin, 'pirate_switch_media_uploader_custom_sizes' );	
 
 	}
 

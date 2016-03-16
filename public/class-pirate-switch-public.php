@@ -104,8 +104,102 @@ class Pirate_Switch_Public {
 
 			<div id="pirate-switch-content" class="pirate-switch-content">
 
-					<br>Content:
-					<br><br><br>
+				<?php
+					/* Layouts/Demos */
+					$pirate_switch_layouts_demos_title = get_theme_mod( 'pirate_switch_layouts_demos_title' );
+					$pirate_switch_layouts_demos_text = get_theme_mod( 'pirate_switch_layouts_demos_text' );
+					$pirate_switch_layouts_demos_box = get_theme_mod( 'pirate_switch_layouts_demos_box' );
+					
+					if( !empty($pirate_switch_layouts_demos_title) || !empty($pirate_switch_layouts_demos_text) || !empty($pirate_switch_layouts_demos_box) ) {
+						echo '<div class="pirate-switch-large-box pirate-switch-layouts-demos">';
+					
+							if( !empty($pirate_switch_layouts_demos_title) ) {
+								echo '<p class="pirate-switch-title">'.$pirate_switch_layouts_demos_title.'</p>';
+							}
+							
+							if( !empty($pirate_switch_layouts_demos_text) ) {
+								echo '<p class="pirate-switch-text">'.$pirate_switch_layouts_demos_text.'</p>';
+							}
+							
+							if( !empty($pirate_switch_layouts_demos_box) ) {
+								$pirate_switch_layouts_demos_box_decoded = json_decode($pirate_switch_layouts_demos_box);
+								if( !empty($pirate_switch_layouts_demos_box_decoded) ) {
+									
+										foreach( $pirate_switch_layouts_demos_box_decoded as $pirate_switch_layouts_demos_box_item ) {
+											if( !empty($pirate_switch_layouts_demos_box_item->image_url) ) {
+												if( !empty($pirate_switch_layouts_demos_box_item->link) ) {
+													
+													$pirate_switch_new_tab = '_self';
+													
+													$pirate_switch_layouts_demos_new_tab = get_theme_mod( 'pirate_switch_layouts_demos_new_tab',1 );
+													
+													if( isset($pirate_switch_layouts_demos_new_tab) && $pirate_switch_layouts_demos_new_tab == 1 ) {
+														$pirate_switch_new_tab = '_blank';
+													}
+													
+													echo '<div class="pirate-switch-layouts-demos-box"><a href="'.$pirate_switch_layouts_demos_box_item->link.'" target="'.$pirate_switch_new_tab.'"><img src="'.$pirate_switch_layouts_demos_box_item->image_url.'" /></a></div>';
+												}
+												else {
+													echo '<div class="pirate-switch-layouts-demos-box"><img src="'.$pirate_switch_layouts_demos_box_item->image_url.'" /></div>';
+												}
+											}
+										}
+										echo '<div class="pirate-switch-clearfix"></div>';
+								}
+								
+							}
+						
+						echo '</div><!-- END .pirate-switch-layouts-demos -->';
+					}	
+
+					/* Styles */
+					
+					$pirate_switch_styles_title = get_theme_mod( 'pirate_switch_styles_title' );
+					$pirate_switch_styles_text = get_theme_mod( 'pirate_switch_styles_text' );
+					$pirate_switch_styles_box = get_theme_mod( 'pirate_switch_styles_box' );
+					
+					if( !empty($pirate_switch_styles_title) || !empty($pirate_switch_styles_text) || !empty($pirate_switch_styles_box) ) {
+						echo '<div class="pirate-switch-large-box pirate-switch-styles">';
+							if( !empty($pirate_switch_styles_title) ) {
+								echo '<p class="pirate-switch-title">'.$pirate_switch_styles_title.'</p>';
+							}
+							
+							if( !empty($pirate_switch_styles_text) ) {
+								echo '<p class="pirate-switch-text">'.$pirate_switch_styles_text.'</p>';
+							}
+
+							if( !empty($pirate_switch_styles_box) ) {
+								$pirate_switch_styles_box_decoded = json_decode($pirate_switch_styles_box);
+								if( !empty($pirate_switch_styles_box_decoded) ) {
+									echo '<ul class="pirate-switch-styles-ul">';
+										foreach( $pirate_switch_styles_box_decoded as $pirate_switch_styles_box_item ) {
+											if( !empty($pirate_switch_styles_box_item->text) ) {
+												if( !empty($pirate_switch_styles_box_item->link) ) {
+													
+													$pirate_switch_new_tab = '_self';
+													
+													$pirate_switch_styles_new_tab = get_theme_mod( 'pirate_switch_styles_new_tab',1 );
+													
+													if( isset($pirate_switch_styles_new_tab) && $pirate_switch_styles_new_tab == 1 ) {
+														$pirate_switch_new_tab = '_blank';
+													}
+													
+													echo '<li class=""><a href="'.$pirate_switch_styles_box_item->link.'" target="'.$pirate_switch_new_tab.'">'.$pirate_switch_styles_box_item->text.'</a></li>';
+												}
+												else {
+													echo '<li class="">'.$pirate_switch_styles_box_item->text.'</li>';
+												}
+											}
+										}
+										echo '<div class="pirate-switch-clearfix"></div>';
+									echo '</ul>';
+								}
+								
+							}
+						echo '</div><!-- END .pirate-switch-styles -->';		
+					}		
+					
+				?>
 
 			</div>
 
