@@ -114,3 +114,12 @@
 .pirate-switch-styles-ul li a {
 	color: #808080;
 }
+.pirate-switch-color-boxes li {
+	display: inline-block;
+    margin-right: 5px;
+	list-style:none;
+}	
+.pirate-switch-color-box {
+	width: 50px;
+    height: 25px;    
+}

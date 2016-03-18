@@ -96,9 +96,8 @@ function pirate_switch_refresh_general_control_values(){
 			var id = jQuery(this).find(".pirate_switch_box_id").val();
             var shortcode = jQuery(this).find(".pirate_switch_shortcode_control").val();
 			var color = jQuery(this).find(".pirate_switch_color_control").val();
-			var elements_list = jQuery(this).find(".pirate_switch_elements_list_control").val();
 			
-            if( text !='' || image_url!='' || title!='' || subtitle!='' || elements_list !='' ){
+            if( text !='' || image_url!='' || title!='' || subtitle!='' || color !='' ){
                 values.push({
                     "icon_value" : (choice === 'pirate_switch_none' ? "" : icon_value) ,
                     "text" :  escapeHtml(text),
@@ -108,11 +107,9 @@ function pirate_switch_refresh_general_control_values(){
                     "title" : escapeHtml(title),
                     "subtitle" : escapeHtml(subtitle),
 					"color" : color,
-					"elements_list" : elements_list,
 					"id" : id,
                     "shortcode" : escapeHtml(shortcode)
                 });
-				console.log('elements list' + JSON.stringify(values));
             }
 
         });
@@ -181,7 +178,6 @@ jQuery(document).ready(function(){
                 field.find(".pirate_switch_subtitle_control").val('');
                 field.find(".pirate_switch_shortcode_control").val('');
 				field.find(".pirate_switch_color_control").val('');
-				field.find(".pirate_switch_elements_list_control").val('');
                 th.find(".pirate_switch_general_control_repeater_container:first").parent().append(field);
                 pirate_switch_refresh_general_control_values();
             }
@@ -219,13 +215,13 @@ jQuery(document).ready(function(){
 		pirate_switch_refresh_general_control_values();
 	});
 	
-	jQuery("#customize-theme-controls").on('keyup', '.pirate_switch_color_control',function(){
-		pirate_switch_refresh_general_control_values();
-	});
-	
-	jQuery("#customize-theme-controls").on('keyup', '.pirate_switch_elements_list_control',function(){
-		pirate_switch_refresh_general_control_values();
-	});
+	if( typeof jQuery('.pirate_switch_color_control') != 'undefined' ) {
+		jQuery('.pirate_switch_color_control').wpColorPicker( {
+			change: _.throttle(function() {
+				pirate_switch_refresh_general_control_values();
+			})
+		});
+	}
 	
 	/*Drag and drop to change icons order*/
 	jQuery(".pirate_switch_general_control_droppable").sortable({
@@ -234,9 +230,7 @@ jQuery(document).ready(function(){
 		}
 	});	
 
-	if( typeof jQuery('.pirate_switch_color_control') != 'undefined' ) {
-		jQuery('.pirate_switch_color_control').wpColorPicker();
-	}	
+	
 });
 
 var entityMap = {

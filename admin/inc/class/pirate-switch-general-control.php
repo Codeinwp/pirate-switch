@@ -62,11 +62,6 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 			$pirate_switch_color_control = $options['pirate_switch_color_control'];
 		} else {
 			$pirate_switch_color_control = false;
-		}
-		if(!empty($options['pirate_switch_elements_list_control'])){
-			$pirate_switch_elements_list_control = $options['pirate_switch_elements_list_control'];
-		} else {
-			$pirate_switch_elements_list_control = false;
 		}	
 		
  ?>
@@ -171,12 +166,6 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 								<input type="text" value='<?php if(!empty($icon->color)) echo $icon->color; ?>' class="pirate_switch_color_control" placeholder="<?php esc_html_e('Color','pirate-switch'); ?>"/>
 							<?php   
 							}
-							if($pirate_switch_elements_list_control==true){
-							?>
-								<span class="customize-control-title"><?php esc_html_e('List of elements','pirate-switch')?></span>
-								<input type="text" value='<?php if(!empty($icon->elements_list)) echo $icon->elements_list; ?>' class="pirate_switch_elements_list_control" placeholder="<?php esc_html_e('List of elements','pirate-switch'); ?>"/>
-							<?php   
-							}
 						?>
 						<input type="hidden" class="pirate_switch_box_id">
 						<button type="button" class="pirate_switch_general_control_remove_field button" style="display:none;"><?php esc_html_e('Delete field','pirate-switch'); ?></button>
@@ -272,12 +261,6 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 										?>
 													<span class="customize-control-title"><?php esc_html_e('Color','pirate-switch')?></span>
 													<input type="text" value='<?php if(!empty($icon->color)) echo $icon->color; ?>' class="pirate_switch_color_control" placeholder="<?php esc_html_e('Color','pirate-switch'); ?>"/>
-												<?php   
-												}
-												if($pirate_switch_elements_list_control==true){
-												?>
-													<span class="customize-control-title"><?php esc_html_e('List of elements','pirate-switch')?></span>
-													<input type="text" value='<?php if(!empty($icon->elements_list)) echo $icon->elements_list; ?>' class="pirate_switch_elements_list_control" placeholder="<?php esc_html_e('List of elements','pirate-switch'); ?>"/>
 												<?php   
 												}
                                         ?>
@@ -383,12 +366,6 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 										?>
 											<span class="customize-control-title"><?php esc_html_e('Color','pirate-switch')?></span>
 											<input type="text" value='<?php if(!empty($icon->color)) echo $icon->color; ?>' class="pirate_switch_color_control" placeholder="<?php esc_html_e('Color','pirate-switch'); ?>"/>
-										<?php   
-										}
-										if($pirate_switch_elements_list_control==true){
-										?>
-											<span class="customize-control-title"><?php esc_html_e('List of elements','pirate-switch')?></span>
-											<input type="text" value='<?php if(!empty($icon->elements_list)) echo $icon->elements_list; ?>' class="pirate_switch_elements_list_control" placeholder="<?php esc_html_e('List of elements','pirate-switch'); ?>"/>
 										<?php   
 										}
                                         ?>

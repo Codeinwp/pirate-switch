@@ -62,7 +62,6 @@ function pirate_switch_customize_register( $wp_customize ) {
         'pirate_switch_icon_control' 	        => false,
         'pirate_switch_text_control' 	        => false,
 		'pirate_switch_color_control' 	        => false,
-		'pirate_switch_elements_list_control' 	=> false,
 		'priority' 					            => 4
 	) ) );
 	
@@ -119,8 +118,6 @@ function pirate_switch_customize_register( $wp_customize ) {
         'pirate_switch_image_control' 	        => false,
         'pirate_switch_icon_control' 	        => false,
 		'pirate_switch_color_control' 	        => false,
-		'pirate_switch_elements_list_control' 	=> false,
-		
 		'priority' 					    => 4
 	) ) );
 	
@@ -153,6 +150,30 @@ function pirate_switch_customize_register( $wp_customize ) {
 		'priority'  => 2
 	));
 	
+	$wp_customize->add_setting( 'pirate_switch_colors_elements_color', array(
+		'default' 			=> '',
+		'sanitize_callback' => ''
+	));
+	
+	$wp_customize->add_control( 'pirate_switch_colors_elements_color', array(
+		'label'    	=> esc_html__( 'Change the color property for this list of elements.', 'pirate-switch' ),
+		'description' => esc_html__( 'Separated by a comma.' ),
+		'section'  	=> 'pirate_switch_colors_section',
+		'priority'  => 3
+	));
+	
+	$wp_customize->add_setting( 'pirate_switch_colors_elements_background', array(
+		'default' 			=> '',
+		'sanitize_callback' => ''
+	));
+	
+	$wp_customize->add_control( 'pirate_switch_colors_elements_background', array(
+		'label'    	=> esc_html__( 'Change the background-color property for this list of elements.', 'pirate-switch' ),
+		'description' => esc_html__( 'Separated by a comma.' ),
+		'section'  	=> 'pirate_switch_colors_section',
+		'priority'  => 4
+	));
+	
 	$wp_customize->add_setting( 'pirate_switch_colors_box', array(
 		'sanitize_callback' => ''
 	));
@@ -161,12 +182,11 @@ function pirate_switch_customize_register( $wp_customize ) {
 		'label'   					            => esc_html__('Add new color','pirate-switch'),
 		'section' 					            => 'pirate_switch_colors_section',
 		'pirate_switch_color_control' 	        => true,
-		'pirate_switch_elements_list_control' 	=> true,
 		'pirate_switch_image_control' 	        => false,
 		'pirate_switch_link_control' 	        => false,
         'pirate_switch_icon_control' 	        => false,
         'pirate_switch_text_control' 	        => false,
-		'priority' 					            => 3
+		'priority' 					            => 5
 	) ) );
 	
 }

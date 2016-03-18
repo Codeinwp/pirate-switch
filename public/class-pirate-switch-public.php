@@ -197,6 +197,49 @@ class Pirate_Switch_Public {
 								
 							}
 						echo '</div><!-- END .pirate-switch-styles -->';		
+					}
+
+					/* Styles */
+					
+					$pirate_switch_colors_title = get_theme_mod( 'pirate_switch_colors_title' );
+					$pirate_switch_colors_text = get_theme_mod( 'pirate_switch_colors_text' );
+					$pirate_switch_colors_box = get_theme_mod( 'pirate_switch_colors_box' );
+					$pirate_switch_colors_elements_color = get_theme_mod( 'pirate_switch_colors_elements_color' );
+					$pirate_switch_colors_elements_background = get_theme_mod( 'pirate_switch_colors_elements_background' );
+
+					if( !empty($pirate_switch_colors_title) || !empty($pirate_switch_colors_text) || ( !empty($pirate_switch_colors_box) && (!empty($pirate_switch_colors_elements_color) || !empty($pirate_switch_colors_elements_background)) ) ) {
+						
+						echo '<div class="pirate-switch-large-box pirate-switch-colors">';
+					
+							if( !empty($pirate_switch_colors_title) ) {
+								echo '<p class="pirate-switch-title">'.$pirate_switch_colors_title.'</p>';
+							}
+							
+							if( !empty($pirate_switch_colors_text) ) {
+								echo '<p class="pirate-switch-text">'.$pirate_switch_colors_text.'</p>';
+							}
+							if( !empty($pirate_switch_colors_box) && (!empty($pirate_switch_colors_elements_color) || !empty($pirate_switch_colors_elements_background)) ) {
+								$pirate_switch_colors_box_decoded = json_decode($pirate_switch_colors_box);
+								if( !empty($pirate_switch_colors_box_decoded) ) {
+									echo '<input type="hidden" value="'.$pirate_switch_colors_elements_color.'" id="pirate_switch_colors_elements_color_values">';
+									echo '<input type="hidden" value="'.$pirate_switch_colors_elements_background.'" id="pirate_switch_colors_elements_background_values">';
+									echo '<ul class="pirate-switch-color-boxes">';
+									foreach( $pirate_switch_colors_box_decoded as $pirate_switch_colors_box_item ) {
+										if( !empty($pirate_switch_colors_box_item->color) ) {
+											
+											echo '<li><div class="pirate-switch-color-box" color-attr="'.$pirate_switch_colors_box_item->color.'" style="background-color:'.$pirate_switch_colors_box_item->color.'"></div></li>';
+											
+										}
+									}
+									echo '</ul>';
+									echo '<div class="pirate-switch-clearfix"></div>';
+								}
+								
+							}
+						
+						echo '</div><!-- END .pirate-switch-colors -->';
+							
+						
 					}		
 					
 				?>
