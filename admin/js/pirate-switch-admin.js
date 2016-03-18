@@ -61,7 +61,6 @@ function media_upload(button_class) {
                             display_field.trigger('change');
 							break;
 						case 'pirate_switch_layout':
-							console.log('aa');
 							display_field.val(attachment.sizes.pirate_switch_layout.url);
                             display_field.trigger('change');	
 						default:
@@ -96,7 +95,10 @@ function pirate_switch_refresh_general_control_values(){
 			var subtitle = jQuery(this).find(".pirate_switch_subtitle_control").val();
 			var id = jQuery(this).find(".pirate_switch_box_id").val();
             var shortcode = jQuery(this).find(".pirate_switch_shortcode_control").val();
-            if( text !='' || image_url!='' || title!='' || subtitle!='' ){
+			var color = jQuery(this).find(".pirate_switch_color_control").val();
+			var elements_list = jQuery(this).find(".pirate_switch_elements_list_control").val();
+			
+            if( text !='' || image_url!='' || title!='' || subtitle!='' || elements_list !='' ){
                 values.push({
                     "icon_value" : (choice === 'pirate_switch_none' ? "" : icon_value) ,
                     "text" :  escapeHtml(text),
@@ -105,18 +107,22 @@ function pirate_switch_refresh_general_control_values(){
                     "choice" : choice,
                     "title" : escapeHtml(title),
                     "subtitle" : escapeHtml(subtitle),
+					"color" : color,
+					"elements_list" : elements_list,
 					"id" : id,
                     "shortcode" : escapeHtml(shortcode)
                 });
+				console.log('elements list' + JSON.stringify(values));
             }
 
         });
+		
         th.find('.pirate_switch_repeater_colector').val(JSON.stringify(values));
         th.find('.pirate_switch_repeater_colector').trigger('change');
     });
 }
 jQuery(document).ready(function(){
-
+	
     jQuery('#customize-theme-controls').on('click','.pirate-switch-customize-control-title',function(){
         jQuery(this).next().slideToggle('medium', function() {
             if (jQuery(this).is(':visible'))
@@ -174,6 +180,8 @@ jQuery(document).ready(function(){
                 field.find(".pirate_switch_title_control").val('');
                 field.find(".pirate_switch_subtitle_control").val('');
                 field.find(".pirate_switch_shortcode_control").val('');
+				field.find(".pirate_switch_color_control").val('');
+				field.find(".pirate_switch_elements_list_control").val('');
                 th.find(".pirate_switch_general_control_repeater_container:first").parent().append(field);
                 pirate_switch_refresh_general_control_values();
             }
@@ -211,6 +219,14 @@ jQuery(document).ready(function(){
 		pirate_switch_refresh_general_control_values();
 	});
 	
+	jQuery("#customize-theme-controls").on('keyup', '.pirate_switch_color_control',function(){
+		pirate_switch_refresh_general_control_values();
+	});
+	
+	jQuery("#customize-theme-controls").on('keyup', '.pirate_switch_elements_list_control',function(){
+		pirate_switch_refresh_general_control_values();
+	});
+	
 	/*Drag and drop to change icons order*/
 	jQuery(".pirate_switch_general_control_droppable").sortable({
 		update: function( event, ui ) {
@@ -218,6 +234,9 @@ jQuery(document).ready(function(){
 		}
 	});	
 
+	if( typeof jQuery('.pirate_switch_color_control') != 'undefined' ) {
+		jQuery('.pirate_switch_color_control').wpColorPicker();
+	}	
 });
 
 var entityMap = {

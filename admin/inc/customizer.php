@@ -55,13 +55,15 @@ function pirate_switch_customize_register( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control( new Pirate_Switch_General_Repeater( $wp_customize, 'pirate_switch_layouts_demos_box', array(
-		'label'   					    => esc_html__('Add new layout/demo','pirate-switch'),
-		'section' 					    => 'pirate_switch_layouts_demos_section',
-        'pirate_switch_image_control' 	=> true,
-		'pirate_switch_link_control' 	=> true,
-        'pirate_switch_icon_control' 	=> false,
-        'pirate_switch_text_control' 	=> false,
-		'priority' 					    => 4
+		'label'   					            => esc_html__('Add new layout/demo','pirate-switch'),
+		'section' 					            => 'pirate_switch_layouts_demos_section',
+        'pirate_switch_image_control' 	        => true,
+		'pirate_switch_link_control' 	        => true,
+        'pirate_switch_icon_control' 	        => false,
+        'pirate_switch_text_control' 	        => false,
+		'pirate_switch_color_control' 	        => false,
+		'pirate_switch_elements_list_control' 	=> false,
+		'priority' 					            => 4
 	) ) );
 	
 	/* Styles */
@@ -110,12 +112,15 @@ function pirate_switch_customize_register( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control( new Pirate_Switch_General_Repeater( $wp_customize, 'pirate_switch_styles_box', array(
-		'label'   					    => esc_html__('Add new style','pirate-switch'),
-		'section' 					    => 'pirate_switch_styles_section',
-		'pirate_switch_text_control' 	=> true,
-		'pirate_switch_link_control' 	=> true,
-        'pirate_switch_image_control' 	=> false,
-        'pirate_switch_icon_control' 	=> false,
+		'label'   					            => esc_html__('Add new style','pirate-switch'),
+		'section' 					            => 'pirate_switch_styles_section',
+		'pirate_switch_text_control' 	        => true,
+		'pirate_switch_link_control' 	        => true,
+        'pirate_switch_image_control' 	        => false,
+        'pirate_switch_icon_control' 	        => false,
+		'pirate_switch_color_control' 	        => false,
+		'pirate_switch_elements_list_control' 	=> false,
+		
 		'priority' 					    => 4
 	) ) );
 	
@@ -153,13 +158,15 @@ function pirate_switch_customize_register( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control( new Pirate_Switch_General_Repeater( $wp_customize, 'pirate_switch_colors_box', array(
-		'label'   					    => esc_html__('Add new color','pirate-switch'),
-		'section' 					    => 'pirate_switch_colors_section',
-		'pirate_switch_color_control' 	=> true,
-		'pirate_switch_link_control' 	=> false,
-        'pirate_switch_image_control' 	=> false,
-        'pirate_switch_icon_control' 	=> false,
-		'priority' 					    => 3
+		'label'   					            => esc_html__('Add new color','pirate-switch'),
+		'section' 					            => 'pirate_switch_colors_section',
+		'pirate_switch_color_control' 	        => true,
+		'pirate_switch_elements_list_control' 	=> true,
+		'pirate_switch_image_control' 	        => false,
+		'pirate_switch_link_control' 	        => false,
+        'pirate_switch_icon_control' 	        => false,
+        'pirate_switch_text_control' 	        => false,
+		'priority' 					            => 3
 	) ) );
 	
 }
