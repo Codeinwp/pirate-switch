@@ -82,8 +82,18 @@
 	width: 128px;
 	height: 100px;
 }
-.pirate-switch-layouts-demos-box img:hover {
-	
+.pirate-switch-layouts-demos-box a {
+	display:block;
+	border: 1px solid transparent;
+	  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+.pirate-switch-layouts-demos-box a:hover {
+	opacity: 0.85;
+    filter: alpha(opacity=85); /* For IE8 and earlier */
 }
 .pirate-switch-title {
 	font-size: 15px;
@@ -101,6 +111,9 @@
     display: block;
     text-align: center;
 }
+.pirate-switch-styles-ul, .pirate-switch-color-boxes {
+	margin: 0px;
+}
 .pirate-switch-styles-ul li {
 	display: inline-block;
     margin-right: 5px;
@@ -108,11 +121,22 @@
     margin-top: 5px;
 	list-style: none;
 	color: #808080;
-	border: 1px solid #ececec;
+	border: 1px solid #ddd;
 	padding: 5px;
+	-webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+	-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }	
 .pirate-switch-styles-ul li a {
 	color: #808080;
+	font-size: 13px;
+}
+.pirate-switch-styles-ul li:hover {
+	background:#ddd;
+	color: #000;
 }
 .pirate-switch-color-boxes li {
 	display: inline-block;
@@ -121,5 +145,6 @@
 }	
 .pirate-switch-color-box {
 	width: 50px;
-    height: 25px;    
+    height: 25px;
+	cursor: pointer;
 }
