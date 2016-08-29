@@ -11,7 +11,7 @@ function pirate_switch_customize_register( $wp_customize ) {
 	
 	/* Layouts/Demos */
 	$wp_customize->add_section( 'pirate_switch_layouts_demos_section' , array(
-		'title'		=> esc_html__( 'Layouts/Demos', 'pirate-switch' ),
+		'title'		=> esc_html__( 'Layouts', 'pirate-switch' ),
 		'panel' 	=> 'panel_pirate_switch',
 		'priority'	=> 1
 	));
@@ -57,10 +57,10 @@ function pirate_switch_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new Pirate_Switch_General_Repeater( $wp_customize, 'pirate_switch_layouts_demos_box', array(
 		'label'   					            => esc_html__('Add new layout/demo','pirate-switch'),
 		'section' 					            => 'pirate_switch_layouts_demos_section',
-        'pirate_switch_image_control' 	        => true,
+        'pirate_switch_image_control' 	        => false,
 		'pirate_switch_link_control' 	        => true,
         'pirate_switch_icon_control' 	        => false,
-        'pirate_switch_text_control' 	        => false,
+        'pirate_switch_text_control' 	        => true,
 		'pirate_switch_color_control' 	        => false,
 		'priority' 					            => 4
 	) ) );

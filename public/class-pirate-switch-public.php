@@ -126,9 +126,8 @@ class Pirate_Switch_Public {
 								if( !empty($pirate_switch_layouts_demos_box_decoded) ) {
 									
 										foreach( $pirate_switch_layouts_demos_box_decoded as $pirate_switch_layouts_demos_box_item ) {
-											if( !empty($pirate_switch_layouts_demos_box_item->image_url) ) {
-												if( !empty($pirate_switch_layouts_demos_box_item->link) ) {
-													
+											if( !empty($pirate_switch_layouts_demos_box_item->text) && !empty($pirate_switch_layouts_demos_box_item->link) ) {
+
 													$pirate_switch_new_tab = '_self';
 													
 													$pirate_switch_layouts_demos_new_tab = get_theme_mod( 'pirate_switch_layouts_demos_new_tab',1 );
@@ -137,18 +136,13 @@ class Pirate_Switch_Public {
 														$pirate_switch_new_tab = '_blank';
 													}
 													
-													echo '<div class="pirate-switch-layouts-demos-box"><a href="'.$pirate_switch_layouts_demos_box_item->link.'" target="'.$pirate_switch_new_tab.'"><img src="'.$pirate_switch_layouts_demos_box_item->image_url.'" /></a></div>';
-												}
-												else {
-													echo '<div class="pirate-switch-layouts-demos-box"><img src="'.$pirate_switch_layouts_demos_box_item->image_url.'" /></div>';
+													echo '<a class="pirate-switch-layout-button" href="'.$pirate_switch_layouts_demos_box_item->link.'" target="'.$pirate_switch_new_tab.'">' . $pirate_switch_layouts_demos_box_item->text . '</a>';
 												}
 											}
 										}
 										echo '<div class="pirate-switch-clearfix"></div>';
 								}
-								
-							}
-						
+
 						echo '</div><!-- END .pirate-switch-layouts-demos -->';
 					}	
 
@@ -171,7 +165,6 @@ class Pirate_Switch_Public {
 							if( !empty($pirate_switch_styles_box) ) {
 								$pirate_switch_styles_box_decoded = json_decode($pirate_switch_styles_box);
 								if( !empty($pirate_switch_styles_box_decoded) ) {
-									echo '<ul class="pirate-switch-styles-ul">';
 										foreach( $pirate_switch_styles_box_decoded as $pirate_switch_styles_box_item ) {
 											if( !empty($pirate_switch_styles_box_item->text) ) {
 												if( !empty($pirate_switch_styles_box_item->link) ) {
@@ -184,10 +177,10 @@ class Pirate_Switch_Public {
 														$pirate_switch_new_tab = '_blank';
 													}
 													
-													echo '<li class=""><a href="'.$pirate_switch_styles_box_item->link.'" target="'.$pirate_switch_new_tab.'">'.$pirate_switch_styles_box_item->text.'</a></li>';
+													echo '<a class="pirate-switch-style-button" href="'.$pirate_switch_styles_box_item->link.'" target="'.$pirate_switch_new_tab.'">'.$pirate_switch_styles_box_item->text.'</a>';
 												}
 												else {
-													echo '<li class="">'.$pirate_switch_styles_box_item->text.'</li>';
+													echo '<a class="pirate-switch-style-button" href="">'.$pirate_switch_styles_box_item->text.'</a>';
 												}
 											}
 										}

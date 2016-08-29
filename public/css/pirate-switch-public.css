@@ -5,7 +5,7 @@
 	bottom: 0;
 	left: -300px;
 	width: 300px;
-	padding: 15px;
+	padding: 0 25px;
 	color: #000;
 	font-size: 12px;
 	-ms-box-sizing: border-box;
@@ -24,6 +24,7 @@
 .pirate-switch-container.pirate-switch-opened {
 	left: 0;
 }
+
 #pirate-switch-open-icon {
 	position: absolute;
 	top: 150px;
@@ -52,6 +53,7 @@
     height: 30px;
     margin: 10px;
 }
+
 .pirate-switch-content {
 	height: 100%;
     overflow-x: hidden;
@@ -67,38 +69,71 @@
 .pirate-switch-content ::-webkit-scrollbar-thumb {
 	background: rgba(255, 255, 255, 0.5);
 }
+
 .pirate-switch-clearfix {
 	clear:both;
 }
+
 .pirate-switch-large-box {
-	border-bottom: 1px solid #ddd;
-	padding: 25px;
+	padding: 30px 0 25px;
+	position: relative;
 }
-.pirate-switch-layouts-demos-box {
-	width: 50%;
-	float: left;
+.pirate-switch-large-box:after {
+	border-top: 1px solid #ededed;
+	content: "";
+	margin: 0 auto;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	width:	 75%;
+	z-index: -1;
 }
+.pirate-switch-large-box.pirate-switch-styles {
+	padding: 30px 0 10px;
+}
+
+.pirate-switch-layout-button {
+	width: 100%;
+	display: block;
+	text-align: center;
+	line-height: 35px;
+	background-color: #333645;
+	border-radius: 3px;
+	margin: 15px 0;
+	color: #fff;
+	font-size: 14px;
+}
+.pirate-switch-layout-button:hover, .pirate-switch-style-button:hover {
+	background-color: #77c4d4;
+	color: #fff;
+}
+.pirate-switch-layout-button:last-of-type {
+	margin-bottom: 0;
+}
+
 .pirate-switch-layouts-demos-box img {
 	width: 128px;
 	height: 100px;
 }
+
 .pirate-switch-layouts-demos-box a {
 	display:block;
 	border: 1px solid transparent;
-	  -webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-          transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
 }
+
 .pirate-switch-layouts-demos-box a:hover {
 	opacity: 0.85;
     filter: alpha(opacity=85); /* For IE8 and earlier */
 }
 .pirate-switch-title {
-	font-size: 15px;
-    color: #000;
-    text-transform: uppercase;
+	font-size: 18px;
+    color: #555555;
     text-align: center;
     display: block;
     margin-bottom: 15px;
@@ -112,24 +147,26 @@
     text-align: center;
 }
 .pirate-switch-styles-ul, .pirate-switch-color-boxes {
-	margin: 0px;
+	margin: 0;
+	padding: 0;
 }
-.pirate-switch-styles-ul li {
+.pirate-switch-style-button {
+	width:47%;
 	display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
 	list-style: none;
-	color: #808080;
-	border: 1px solid #ddd;
-	padding: 5px;
-	-webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-	-webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-}	
+	text-align: center;
+	border-radius: 3px;
+	line-height: 35px;
+	margin-bottom: 15px;
+	background-color: #333645;
+	color: #fff;
+	font-size: 14px;
+}
+
+.pirate-switch-style-button:nth-child(2n+1) {
+	float: right;
+}
+
 .pirate-switch-styles-ul li a {
 	color: #808080;
 	font-size: 13px;
