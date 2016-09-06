@@ -3,11 +3,15 @@ jQuery( document ).ready( function($) {
 
     $( '#pirate-switch-open-icon' ).on( "click", function() {
 
-		var $switchMainBox = $( '#pirate-switch-main-box' ),
+		var $switchMainBox = $( '#pirate-switch-main-box, #pirate-switch-open-icon' ),
 			hideClass = 'pirate-switch-opened';
 		$switchMainBox.toggleClass( hideClass );
 
 	});
+
+
+	setSidebarHeight();
+
 
 	$( '.pirate-switch-color-box' ).on( "click", function() {
 		
@@ -24,4 +28,13 @@ jQuery( document ).ready( function($) {
 		}	
 	});
 
+});
+
+function setSidebarHeight() {
+	windowHeight = jQuery(window).innerHeight();
+	jQuery('#pirate-switch-content').css('max-height', windowHeight);
+}
+
+jQuery( window ).resize(function() {
+	setSidebarHeight();
 });
