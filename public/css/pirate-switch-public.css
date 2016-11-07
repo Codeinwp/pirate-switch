@@ -1,11 +1,12 @@
 .pirate-switch-container {
+	font-family: "Open Sans", sans-serif;
 	position: fixed;
 	z-index: 9999999;
 	top: 0;
 	bottom: 0;
 	left: -300px;
 	width: 300px;
-	padding: 15px;
+	padding: 0 25px;
 	color: #000;
 	font-size: 12px;
 	-ms-box-sizing: border-box;
@@ -24,6 +25,56 @@
 .pirate-switch-container.pirate-switch-opened {
 	left: 0;
 }
+
+#pirate-switch-open-icon {
+	position: absolute;
+	top: 150px;
+	right: -50px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background: #f13457;
+	-webkit-border-radius: 0 3px 3px 0;
+	-moz-border-radius: 0 3px 3px 0;
+	border-radius: 0 3px 3px 0;
+}
+#pirate-switch-open-icon:hover {
+	background: #FD1B45;
+}
+
+#pirate-switch-open-icon.pirate-switch-opened:before {
+	content: "\f0d9";
+}
+.pirate-switch-open:before {
+	content: "\f013";
+    float: left;
+    font-family: fontawesome;
+    color: #FFF;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: lighter!important;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+.pirate-switch-content {
+	height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+	width: 267px;
+}
+
+.pirate-switch-content-wrapper {
+	overflow: hidden;
+	max-height:100%;
+}
+
+.pirate-switch-container.pirate-switch-opened {
+	left: 0;
+}
+
 #pirate-switch-open-icon {
 	position: absolute;
 	top: 150px;
@@ -52,43 +103,82 @@
     height: 30px;
     margin: 10px;
 }
-.pirate-switch-content {
-	height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
+
 .pirate-switch-content ::-webkit-scrollbar {
-	width: 12px;  /* for vertical scrollbars */
-	height: 12px; /* for horizontal scrollbars */
+	width: 0px;  /* for vertical scrollbars */
+	height: 0px; /* for horizontal scrollbars */
 }
 .pirate-switch-content ::-webkit-scrollbar-track {
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.0);
 }
 .pirate-switch-content ::-webkit-scrollbar-thumb {
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.0);
 }
+
 .pirate-switch-clearfix {
 	clear:both;
 }
+
 .pirate-switch-large-box {
-	border-bottom: 1px solid #ddd;
-	padding: 25px;
+	padding: 30px 0 25px;
+	position: relative;
 }
-.pirate-switch-layouts-demos-box {
-	width: 50%;
-	float: left;
+.pirate-switch-large-box:after {
+	border-top: 1px solid #ededed;
+	content: "";
+	margin: 0 auto;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	width:	 75%;
+	z-index: -1;
 }
+.pirate-switch-large-box.pirate-switch-styles {
+	padding: 30px 0 10px;
+}
+
+.pirate-switch-layout-button {
+	transition: all .3s ease-out;
+	width: 100%;
+	display: block;
+	text-align: center;
+	line-height: 35px;
+	background-color: #333645;
+	border-radius: 3px;
+	margin: 15px 0;
+	color: #fff;
+	font-size: 14px;
+}
+.pirate-switch-layout-button:hover, .pirate-switch-style-button:hover, .pirate-switch-layout-button:focus, .pirate-switch-style-button:focus {
+	background-color: #77c4d4;
+	color: #fff;
+}
+.pirate-switch-layout-button:last-of-type {
+	margin-bottom: 0;
+}
+
 .pirate-switch-layouts-demos-box img {
 	width: 128px;
 	height: 100px;
 }
-.pirate-switch-layouts-demos-box img:hover {
-	
+.pirate-switch-layouts-demos-box a {
+	display:block;
+	border: 1px solid transparent;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
 }
+.pirate-switch-layouts-demos-box a:hover {
+	opacity: 0.;
+    filter: alpha(opacity=85); /* For IE8 and earlier */
+}
+
 .pirate-switch-title {
-	font-size: 15px;
-    color: #000;
-    text-transform: uppercase;
+	font-size: 18px;
+    color: #555555;
     text-align: center;
     display: block;
     margin-bottom: 15px;
@@ -101,25 +191,109 @@
     display: block;
     text-align: center;
 }
-.pirate-switch-styles-ul li {
+.pirate-switch-styles-ul, .pirate-switch-color-boxes {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	position: relative;
+}
+.pirate-switch-style-button {
+	transition: all .3s ease-out;
+	width:47%;
 	display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
 	list-style: none;
-	color: #808080;
-	border: 1px solid #ececec;
-	padding: 5px;
-}	
+	text-align: center;
+	border-radius: 3px;
+	line-height: 35px;
+	margin-bottom: 15px;
+	background-color: #333645;
+	color: #fff;
+	font-size: 14px;
+}
+
+.pirate-switch-style-button:nth-child(2n+1) {
+	float: right;
+}
+
 .pirate-switch-styles-ul li a {
 	color: #808080;
+	font-size: 13px;
 }
+.pirate-switch-styles-ul li:hover {
+	background:#ddd;
+	color: #000;
+}
+
+.pirate-switch-color-boxes {
+	text-align: center;
+}
+
 .pirate-switch-color-boxes li {
 	display: inline-block;
-    margin-right: 5px;
-	list-style:none;
-}	
+	list-style: none;
+	width: 16%;
+	margin-right: 5%;
+}
+
+.pirate-switch-color-boxes li:nth-child(5n), .pirate-switch-color-boxes li:last-child {
+	margin-right: 0;
+}
+
 .pirate-switch-color-box {
-	width: 50px;
-    height: 25px;    
+	transition: all .3s ease-out;
+	cursor: pointer;
+	margin: 0 auto;
+	width: 100%;
+	height: 35px;
+	margin: 0 auto;
+	border-radius: 3px;
+}
+.pirate-switch-color-box:hover {
+	border: 1px solid #fff;
+}
+.pirate-switch-child-theme-button {
+	border-radius: 3px;
+	overflow:hidden;
+	position: relative;
+	margin-bottom: 15px;
+	width: 100%;
+	height: 150px;
+	display: block;
+}
+.pirate-switch-child-theme-button:hover > .pirate-switch-child-themes-overlay {
+	opacity: 0.0;
+}
+.pirate-switch-child-themes-overlay {
+	transition: all .3s ease-out;
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+	background-color: rgba(0,0,0,.5);
+}
+
+@media (max-width: 480px) {
+	.pirate-switch-container {
+		width: 100%;
+		left: -100%;
+	}
+
+	.pirate-switch-container.pirate-switch-opened {
+		left: 0;
+	}
+
+	.pirate-switch-content {
+		width: 100%;
+		padding: 0 25px;
+	}
+	#pirate-switch-open-icon.pirate-switch-opened {
+		z-index: 100;
+	}
+	#pirate-switch-open-icon.pirate-switch-opened {
+		position: fixed;
+		top: 0px;
+		left: auto;
+		right: 0;
+		-webkit-border-radius: 0 0 0 3px;
+		-moz-border-radius: 0 0 0 3px;
+		border-radius: 0 0 0 3px;
+	}
 }
