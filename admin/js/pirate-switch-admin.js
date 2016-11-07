@@ -106,7 +106,7 @@ function pirate_switch_refresh_general_control_values(){
                     "choice" : choice,
                     "title" : escapeHtml(title),
                     "subtitle" : escapeHtml(subtitle),
-					"color" : color,
+					"color" : escapeHtml(color),
 					"id" : id,
                     "shortcode" : escapeHtml(shortcode)
                 });
