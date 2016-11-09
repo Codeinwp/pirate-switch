@@ -1,8 +1,7 @@
 <?php
+require_once (  plugin_dir_path( __FILE__ ) . 'customizer-repeater/inc/customizer.php');
 
 function pirate_switch_customize_register( $wp_customize ) {
-	
-	require_once ( 'class/pirate-switch-general-control.php');
 	
 	$wp_customize->add_panel( 'panel_pirate_switch', array(
 		'title'    => esc_html__( 'Pirate Switch', 'pirate-switch' ),
@@ -57,11 +56,8 @@ function pirate_switch_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new Pirate_Switch_General_Repeater( $wp_customize, 'pirate_switch_layouts_demos_box', array(
 		'label'   					            => esc_html__('Add new layout/demo','pirate-switch'),
 		'section' 					            => 'pirate_switch_layouts_demos_section',
-        'pirate_switch_image_control' 	        => false,
 		'pirate_switch_link_control' 	        => true,
-        'pirate_switch_icon_control' 	        => false,
         'pirate_switch_text_control' 	        => true,
-		'pirate_switch_color_control' 	        => false,
 		'priority' 					            => 4
 	) ) );
 	
@@ -115,9 +111,6 @@ function pirate_switch_customize_register( $wp_customize ) {
 		'section' 					            => 'pirate_switch_styles_section',
 		'pirate_switch_text_control' 	        => true,
 		'pirate_switch_link_control' 	        => true,
-        'pirate_switch_image_control' 	        => false,
-        'pirate_switch_icon_control' 	        => false,
-		'pirate_switch_color_control' 	        => false,
 		'priority' 					    => 4
 	) ) );
 	
@@ -182,10 +175,6 @@ function pirate_switch_customize_register( $wp_customize ) {
 		'label'   					            => esc_html__('Add new color','pirate-switch'),
 		'section' 					            => 'pirate_switch_colors_section',
 		'pirate_switch_color_control' 	        => true,
-		'pirate_switch_image_control' 	        => false,
-		'pirate_switch_link_control' 	        => false,
-        'pirate_switch_icon_control' 	        => false,
-        'pirate_switch_text_control' 	        => false,
 		'priority' 					            => 5
 	) ) );
 
@@ -248,11 +237,8 @@ function pirate_switch_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new Pirate_Switch_General_Repeater( $wp_customize, 'pirate_switch_child_themes_box', array(
 		'label'   					            => esc_html__('Add new child theme','pirate-switch'),
 		'section' 					            => 'pirate_switch_child_themes_section',
-		'pirate_switch_text_control' 	        => false,
 		'pirate_switch_link_control' 	        => true,
 		'pirate_switch_image_control' 	        => true,
-		'pirate_switch_icon_control' 	        => false,
-		'pirate_switch_color_control' 	        => false,
 		'priority' 					            => 4
 	) ) );
 
