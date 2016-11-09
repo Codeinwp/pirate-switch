@@ -88,9 +88,6 @@ class Pirate_Switch_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		wp_enqueue_style( 'wp-color-picker' );
-		wp_enqueue_script( 'wp-color-picker' );
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pirate-switch-admin.js', array( 'jquery', 'customize-controls','wp-color-picker' ), $this->version, false );
 	}
 	
 	/**

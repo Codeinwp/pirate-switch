@@ -16,15 +16,15 @@ jQuery( document ).ready( function($) {
 	$( '.pirate-switch-color-box' ).on( "click", function() {
 		
 		var pirate_switch_colors_elements_color_values = jQuery('#pirate_switch_colors_elements_color_values').val();
-		
+
 		if( ( typeof pirate_switch_colors_elements_color_values != 'undefined' ) && ( pirate_switch_colors_elements_color_values != '' ) ) {
-			jQuery(pirate_switch_colors_elements_color_values).css('color',jQuery(this).attr('color-attr'));
+			jQuery(pirate_switch_colors_elements_color_values).not( "#pirate-switch-main-box *, #wpadminbar *" ).css('color',jQuery(this).attr('color-attr'));
 		}
 		
 		var pirate_switch_colors_elements_background_values = jQuery('#pirate_switch_colors_elements_background_values').val();
 		
 		if( ( typeof pirate_switch_colors_elements_background_values != 'undefined' ) && ( pirate_switch_colors_elements_background_values != '' ) ) {
-			jQuery(pirate_switch_colors_elements_background_values).css('background',jQuery(this).attr('color-attr'));
+			jQuery(pirate_switch_colors_elements_background_values).not( "#pirate-switch-main-box *, #wpadminbar *" ).css('background',jQuery(this).attr('color-attr'));
 		}	
 	});
 
