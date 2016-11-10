@@ -18,7 +18,7 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
 		/*Get options from customizer.php*/
-		$this->boxtitle   = __('Pirate Switch','hestia');
+		$this->boxtitle   = __('Pirate Switch','pirate-switch');
 
 		if ( ! empty( $args['pirate_switch_image_control'] ) ) {
 			$this->customizer_repeater_image_control = $args['pirate_switch_image_control'];
@@ -91,7 +91,7 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 			} ?>
 		</div>
 		<button type="button" class="button add_field pirate_switch_general_control_new_field">
-			<?php esc_html_e( 'Add new field', 'hestia' ); ?>
+			<?php esc_html_e( 'Add new field', 'pirate-switch' ); ?>
 		</button>
 		<?php
 	}
@@ -134,7 +134,7 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 
 						if($this->customizer_repeater_color_control==true){
 							$this->input_control(array(
-								'label' => __('Color','hestia'),
+								'label' => __('Color','pirate-switch'),
 								'class' => 'pirate_switch_color_control',
 								'type'  => 'color',
 								'sanitize_callback' => 'sanitize_hex_color'
@@ -143,7 +143,7 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 
 						if($this->customizer_repeater_text_control==true){
 							$this->input_control(array(
-								'label' => __('Text','hestia'),
+								'label' => __('Text','pirate-switch'),
 								'class' => 'pirate_switch_text_control',
 								'type'  => 'textarea'
 							), $text);
@@ -151,7 +151,7 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 
 						if($this->customizer_repeater_link_control){
 							$this->input_control(array(
-								'label' => __('Link','hestia'),
+								'label' => __('Link','pirate-switch'),
 								'class' => 'pirate_switch_link_control',
 								'sanitize_callback' => 'esc_url'
 							), $link);
@@ -163,7 +163,7 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 						<button type="button" class="pirate_switch_general_control_remove_field button" <?php if ( $it == 0 ) {
 							echo 'style="display:none;"';
 						} ?>>
-							<?php esc_html_e( 'Delete field', 'hestia' ); ?>
+							<?php esc_html_e( 'Delete field', 'pirate-switch' ); ?>
 						</button>
 
 					</div>
@@ -185,7 +185,7 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 
 					if($this->customizer_repeater_color_control==true){
 						$this->input_control(array(
-							'label' => __('Color','hestia'),
+							'label' => __('Color','pirate-switch'),
 							'class' => 'pirate_switch_color_control',
 							'type'  => 'color',
 							'sanitize_callback' => 'sanitize_hex_color'
@@ -194,7 +194,7 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 
 					if ( $this->customizer_repeater_text_control == true ) {
 						$this->input_control( array(
-							'label' => __( 'Text', 'hestia' ),
+							'label' => __( 'Text', 'pirate-switch' ),
 							'class' => 'pirate_switch_text_control',
 							'type'  => 'textarea'
 						) );
@@ -202,14 +202,14 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 
 					if ( $this->customizer_repeater_link_control == true ) {
 						$this->input_control( array(
-							'label' => __( 'Link', 'hestia' ),
+							'label' => __( 'Link', 'pirate-switch' ),
 							'class' => 'pirate_switch_link_control'
 						) );
 					} ?>
 
 					<input type="hidden" class="pirate_switch_box_id">
 					<button type="button" class="pirate_switch_general_control_remove_field button" style="display:none;">
-						<?php esc_html_e( 'Delete field', 'hestia' ); ?>
+						<?php esc_html_e( 'Delete field', 'pirate-switch' ); ?>
 					</button>
 				</div>
 			</div>
@@ -240,10 +240,10 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 	private function image_control($value = ''){ ?>
 		<div class="customizer-repeater-image-control">
             <span class="customize-control-title">
-                <?php esc_html_e('Image','hestia')?>
+                <?php esc_html_e('Image','pirate-switch')?>
             </span>
 			<input type="text" class="widefat custom_media_url" value="<?php echo esc_attr( $value ); ?>">
-			<input type="button" class="button button-primary custom_media_button_pirate_switch" value="<?php esc_html_e('Upload Image','hestia'); ?>" />
+			<input type="button" class="button button-primary custom_media_button_pirate_switch" value="<?php esc_html_e('Upload Image','pirate-switch'); ?>" />
 		</div>
 		<?php
 	}
