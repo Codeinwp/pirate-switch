@@ -92,6 +92,34 @@ class Pirate_Switch_Public {
 
 
 	}
+
+	/**
+	 * Check if Repeater is empty
+	 *
+	 * @param string $ps_arr Repeater json array.
+	 *
+	 * @return bool
+	 */
+	public function pirate_switch_general_repeater_is_empty( $ps_arr ) {
+		if ( empty( $ps_arr ) ) {
+			return true;
+		}
+		$ps_arr_decoded = json_decode( $ps_arr, true );
+		$not_check_keys = array( 'choice', 'id' );
+		foreach ( $ps_arr_decoded as $item ) {
+			foreach ( $item as $key => $value ) {
+				if ( $key === 'icon_value' && ( ! empty( $value ) && $value !== 'No icon') ) {
+					return false;
+				}
+				if ( ! in_array( $key, $not_check_keys ) ) {
+					if ( ! empty( $value ) ) {
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
 	
 	public function pirate_switch_display_block() {
 		
@@ -110,7 +138,7 @@ class Pirate_Switch_Public {
 						$pirate_switch_layouts_demos_text = get_theme_mod( 'pirate_switch_layouts_demos_text' );
 						$pirate_switch_layouts_demos_box = get_theme_mod( 'pirate_switch_layouts_demos_box' );
 
-						if( !empty($pirate_switch_layouts_demos_title) || !empty($pirate_switch_layouts_demos_text) || !empty($pirate_switch_layouts_demos_box) ) {
+						if( ! empty( $pirate_switch_layouts_demos_title ) || ! empty( $pirate_switch_layouts_demos_text ) || ! pirate_switch_general_repeater_is_empty( $pirate_switch_layouts_demos_box ) ) {
 							echo '<div class="pirate-switch-large-box pirate-switch-layouts-demos">';
 
 								if( !empty($pirate_switch_layouts_demos_title) ) {
@@ -152,7 +180,7 @@ class Pirate_Switch_Public {
 						$pirate_switch_styles_text = get_theme_mod( 'pirate_switch_styles_text' );
 						$pirate_switch_styles_box = get_theme_mod( 'pirate_switch_styles_box' );
 
-						if( !empty($pirate_switch_styles_title) || !empty($pirate_switch_styles_text) || !empty($pirate_switch_styles_box) ) {
+						if( ! empty( $pirate_switch_styles_title ) || ! empty( $pirate_switch_styles_text ) || ! pirate_switch_general_repeater_is_empty( $pirate_switch_styles_box ) ) {
 							echo '<div class="pirate-switch-large-box pirate-switch-styles">';
 								if( !empty($pirate_switch_styles_title) ) {
 									echo '<p class="pirate-switch-title">'.$pirate_switch_styles_title.'</p>';
@@ -200,7 +228,7 @@ class Pirate_Switch_Public {
 						$pirate_switch_colors_elements_color = get_theme_mod( 'pirate_switch_colors_elements_color' );
 						$pirate_switch_colors_elements_background = get_theme_mod( 'pirate_switch_colors_elements_background' );
 
-						if( !empty($pirate_switch_colors_title) || !empty($pirate_switch_colors_text) || ( !empty($pirate_switch_colors_box) && (!empty($pirate_switch_colors_elements_color) || !empty($pirate_switch_colors_elements_background)) ) ) {
+						if( ! empty( $pirate_switch_colors_title ) || ! empty( $pirate_switch_colors_text ) || ( ! pirate_switch_general_repeater_is_empty( $pirate_switch_colors_box ) && ( ! empty( $pirate_switch_colors_elements_color ) || ! empty( $pirate_switch_colors_elements_background )) ) ) {
 
 							echo '<div class="pirate-switch-large-box pirate-switch-colors">';
 
@@ -241,7 +269,7 @@ class Pirate_Switch_Public {
 					$pirate_switch_child_themes_text = get_theme_mod( 'pirate_switch_child_themes_text' );
 					$pirate_switch_child_themes_box = get_theme_mod( 'pirate_switch_child_themes_box' );
 
-					if( !empty($pirate_switch_child_themes_title) || !empty($pirate_switch_child_themes_text) || !empty($pirate_switch_child_themes_box) ) {
+					if( ! empty( $pirate_switch_child_themes_title ) || ! empty( $pirate_switch_child_themes_text ) || ! pirate_switch_general_repeater_is_empty( $pirate_switch_child_themes_box ) ) {
 						echo '<div class="pirate-switch-large-box pirate-switch-child-themes">';
 						if( !empty($pirate_switch_child_themes_title) ) {
 							echo '<p class="pirate-switch-title">'.$pirate_switch_child_themes_title.'</p>';
