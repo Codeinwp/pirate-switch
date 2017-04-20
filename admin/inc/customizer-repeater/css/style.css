@@ -1,0 +1,215 @@
+.ps-general-control-repeater-container .ps-box-content-hidden:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.ps-general-control-repeater-container .ps-box-content-hidden {
+    display: none;
+}
+
+.ps-customize-control-title {
+    margin: 0;
+    padding: 15px;
+    font-size: 1em;
+    line-height: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: block;
+    font-weight: 600;
+    color: #23282d;
+    border: 1px solid #e5e5e5;
+    cursor: move;
+}
+
+.ps-customize-control-title:hover {
+    border: 1px solid #999;
+}
+
+.ps-customize-control-title:after {
+    content: "\f140";
+    font-family: dashicons;
+    font-size: 20px;
+    height: 13px;
+    bottom: 3px;
+    position: relative;
+    float: right;
+}
+
+.ps-customize-control-title.repeater-expanded:after {
+    content: "\f142";
+}
+
+.ps-box-content-hidden {
+    border: 1px solid #e5e5e5;
+    border-top: none;
+    padding: 1px 10px 10px;
+}
+
+.ps-box-content-hidden > div {
+    margin: 1em 0;
+}
+
+.ps-box-content-hidden .customize-control-title {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: normal;
+    margin-bottom: 0;
+    margin-top: 1em;
+}
+
+.ps-box-content-hidden .customize-control-title:after {
+    content: ":";
+}
+
+.ps-box-content-hidden span.description {
+    font-size: 12px;
+    font-style: normal;
+}
+
+.ps-general-control-repeater-container, .ps-general-control-repeater-container {
+    border: 1px solid #e5e5e5;
+    border-top: none;
+    margin-bottom: 12px;
+    width: 100%;
+    float: left;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+}
+
+.ps-box-content-hidden .wp-picker-container, .ps-box-content-hidden .wp-picker-container .wp-color-result, .icp-container {
+    margin: 0;
+}
+
+.ps-box-content-hidden input:not(.icp, .wp-color-picker),
+.ps-box-content-hidden textarea,
+.ps-box-content-hidden .wp-picker-container {
+    margin-bottom: 1em !important;
+}
+
+.ps-general-control-remove-field {
+    cursor: pointer;
+    color: #a00;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+.ps-general-control-remove-field:hover {
+    color: red;
+}
+
+.ps-box-content-hidden .wp-picker-holder {
+    position: relative;
+    left: -10px;
+}
+
+.ps-box-content-hidden .wp-picker-input-wrap {
+    margin-left: 10px;
+}
+
+.ps-box-content-hidden .wp-picker-container .iris-picker {
+    border-left: none;
+    border-right: none;
+}
+
+button.ps-new-field {
+    float: right;
+}
+
+button.ps-new-field:before {
+    content: "\f132";
+    display: inline-block;
+    position: relative;
+    left: -2px;
+    top: -1px;
+    font: 400 20px/1 dashicons;
+    vertical-align: middle;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ps-box-content-hidden > div.ps-social-repeater {
+    margin-top: 0;
+}
+
+.ps-general-control-repeater-container .ps-icon-control {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#ps-new-field {
+    width: 100%;
+}
+
+.customize-control-widget_form .widget-control-save {
+    display: block !important;
+}
+
+.ps-box-content-hidden {
+    background-color: #fff;
+}
+
+.ps-image-control .ps-custom-media-button {
+    margin-top: 5px;
+}
+
+.customizer-icons {
+    display: inline-block;
+    padding: 0 10px 0 0;
+    vertical-align: middle;
+}
+
+.social-repeater-remove-social-item {
+    display: inline-block;
+    vertical-align: top;
+    color: #a00;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.social-repeater-remove-social-item:hover {
+    color: red;
+}
+
+.ps-social-repeater > .ps-social-repeater-container:not(:first-child) {
+    margin-top: 25px;
+}
+
+.icp-container {
+    margin-bottom: 10px;
+}
+
+.button-secondary.social-repeater-add-social-item:before {
+    content: "\f132";
+    display: inline-block;
+    position: relative;
+    left: -2px;
+    top: -1px;
+    font: 400 20px/1 dashicons;
+    vertical-align: middle;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.button-secondary.social-repeater-add-social-item {
+    vertical-align: text-top;
+    float: right;
+}
+
+.ps-box-content-hidden textarea {
+    width: 100%;
+}

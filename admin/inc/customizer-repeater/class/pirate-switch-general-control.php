@@ -7,6 +7,7 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 
 	public $id;
 	private $boxtitle = array();
+    private $add_field_label = array();
 	private $customizer_repeater_image_control = false;
 	private $customizer_repeater_color_control = false;
 	private $customizer_repeater_text_control = false;
@@ -18,7 +19,17 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
 		/*Get options from customizer.php*/
-		$this->boxtitle   = __('Pirate Switch','pirate-switch');
+        $this->add_field_label = esc_html__( 'Add new field', 'pirate-switch' );
+        if ( ! empty( $args['add_field_label'] ) ) {
+            $this->add_field_label = $args['add_field_label'];
+        }
+
+        $this->boxtitle = esc_html__( 'Pirate Switch', 'pirate-switch' );
+        if ( ! empty ( $args['item_name'] ) ) {
+            $this->boxtitle = $args['item_name'];
+        } elseif ( ! empty( $this->label ) ) {
+            $this->boxtitle = $this->label;
+        }
 
 		if ( ! empty( $args['pirate_switch_image_control'] ) ) {
 			$this->customizer_repeater_image_control = $args['pirate_switch_image_control'];
@@ -44,6 +55,8 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 	/*Enqueue resources for the control*/
 	public function enqueue() {
 
+        wp_enqueue_style( 'customizer-repeater-admin-stylesheet', plugin_dir_url( __DIR__ ) . 'css/style.css','1.0.0' );
+
 		wp_enqueue_style( 'wp-color-picker' );
 
 		wp_enqueue_script( 'customizer-repeater-script', plugin_dir_url( __DIR__ ) . 'js/customizer_repeater.js', array('jquery', 'jquery-ui-draggable', 'wp-color-picker' ), '1.0.1', true  );
@@ -52,45 +65,36 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 
 	public function render_content() {
 
-		/*Get default options*/
-		$this_default = json_decode( $this->setting->default );
-
-		/*Get values (json format)*/
-		$values = $this->value();
-
-		/*Decode values*/
-		$json = json_decode( $values );
-
-		if ( ! is_array( $json ) ) {
-			$json = array( $values );
-		} ?>
+        $repeater_content = $this->value();
+        $values = array();
+        if ( ! empty( $repeater_content ) ) {
+            $values = $repeater_content;
+        } else {
+            if ( ! empty( $this->setting->default ) ) {
+                $values = $this->setting->default;
+            }
+        } ?>
 
 		<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-		<div class="pirate_switch_general_control_repeater pirate_switch_general_control_droppable">
-			<?php
-			if ( ( count( $json ) == 1 && '' === $json[0] ) || empty( $json ) ) {
-				if ( ! empty( $this_default ) ) {
-					$this->iterate_array( $this_default ); ?>
-					<input type="hidden"
-					       id="pirate_switch_<?php echo $this->id; ?>_repeater_colector" <?php $this->link(); ?>
-					       class="pirate_switch_repeater_colector"
-					       value="<?php echo esc_textarea( json_encode( $this_default ) ); ?>"/>
-					<?php
-				} else {
-					$this->iterate_array(); ?>
-					<input type="hidden"
-					       id="pirate_switch_<?php echo $this->id; ?>_repeater_colector" <?php $this->link(); ?>
-					       class="pirate_switch_repeater_colector"/>
-					<?php
-				}
-			} else {
-				$this->iterate_array( $json ); ?>
-				<input type="hidden" id="pirate_switch_<?php echo $this->id; ?>_repeater_colector" <?php $this->link(); ?>
-				       class="pirate_switch_repeater_colector" value="<?php echo esc_textarea( $this->value() ); ?>"/>
-				<?php
-			} ?>
+		<div class="ps-general-control-repeater ps-general-control-droppable">
+            <?php
+            if ( ! pirate_switch_general_repeater_is_empty( $values ) ) {
+                $valuse_decoded = json_decode( $values );
+                $this->iterate_array( $valuse_decoded ); ?>
+                <input type="hidden"
+                       id="customizer-repeater-<?php echo esc_attr( $this->id ); ?>-colector" <?php $this->link(); ?>
+                       class="ps-colector"
+                       value="<?php echo esc_textarea( json_encode( $valuse_decoded ) ); ?>"/>
+                <?php
+            } else {
+                $this->iterate_array(); ?>
+                <input type="hidden"
+                       id="customizer-repeater-<?php echo esc_attr( $this->id ); ?>-colector" <?php $this->link(); ?>
+                       class="ps-colector"/>
+                <?php
+            } ?>
 		</div>
-		<button type="button" class="button add_field pirate_switch_general_control_new_field">
+		<button type="button" class="button add_field ps-new-field">
 			<?php esc_html_e( 'Add new field', 'pirate-switch' ); ?>
 		</button>
 		<?php
@@ -102,13 +106,17 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 		if(!empty($array)){
 			foreach($array as $icon){ ?>
 
-				<div class="pirate_switch_general_control_repeater_container customizer-repeater-draggable">
-					<div class="pirate-switch-customize-control-title">
+				<div class="ps-general-control-repeater-container ps-draggable">
+					<div class="ps-customize-control-title">
 						<?php esc_html_e( $this->boxtitle ) ?>
 					</div>
-					<div class="pirate-switch-box-content-hidden">
+					<div class="ps-box-content-hidden">
 						<?php
-						$image_url = $text = $link = $repeater = $color = '';
+						$image_url = '';
+						$text = '';
+						$link = '';
+						$color = '';
+
 						if(!empty($icon->id)){
 							$id = $icon->id;
 						}
@@ -128,39 +136,36 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 							$link = $icon->link;
 						}
 
-						if($this->customizer_repeater_image_control == true){
-							$this->image_control($image_url);
+						if($this->customizer_repeater_image_control === true){
+							$this->image_control( $image_url );
 						}
 
-						if($this->customizer_repeater_color_control==true){
+						if($this->customizer_repeater_color_control === true){
 							$this->input_control(array(
-								'label' => __('Color','pirate-switch'),
+								'label' => apply_filters('repeater_input_labels_filter', esc_html__('Color','pirate-switch'), $this->id, 'customizer_repeater_color_control' ),
 								'class' => 'pirate_switch_color_control',
-								'type'  => 'color',
+								'type'  => apply_filters('repeater_input_types_filter', 'color', $this->id, 'customizer_repeater_color_control' ),
 								'sanitize_callback' => 'sanitize_hex_color'
 							), $color);
 						}
 
 						if($this->customizer_repeater_text_control==true){
 							$this->input_control(array(
-								'label' => __('Text','pirate-switch'),
+								'label' => apply_filters('repeater_input_labels_filter', esc_html__('Text','pirate-switch'), $this->id, 'customizer_repeater_text_control' ),
 								'class' => 'pirate_switch_text_control',
-								'type'  => 'textarea'
+								'type'  =>  apply_filters('repeater_input_types_filter', 'textarea', $this->id, 'customizer_repeater_text_control' ),
 							), $text);
 						}
 
 						if($this->customizer_repeater_link_control){
 							$this->input_control(array(
-								'label' => __('Link','pirate-switch'),
+								'label' => apply_filters('repeater_input_labels_filter', esc_html__('Link','pirate-switch'), $this->id, 'customizer_repeater_link_control' ),
 								'class' => 'pirate_switch_link_control',
-								'sanitize_callback' => 'esc_url'
+								'sanitize_callback' => 'esc_url_raw'
 							), $link);
 						}?>
 
-						<input type="hidden" class="pirate_switch_box_id" value="<?php if ( ! empty( $id ) ) {
-							echo esc_attr( $id );
-						} ?>">
-						<button type="button" class="pirate_switch_general_control_remove_field button" <?php if ( $it == 0 ) {
+						<button type="button" class="ps-general-control-remove-field" <?php if ( $it == 0 ) {
 							echo 'style="display:none;"';
 						} ?>>
 							<?php esc_html_e( 'Delete field', 'pirate-switch' ); ?>
@@ -173,11 +178,11 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 				$it++;
 			}
 		} else { ?>
-			<div class="pirate_switch_general_control_repeater_container">
-				<div class="pirate-switch-customize-control-title">
+			<div class="ps-general-control-repeater-container">
+				<div class="ps-customize-control-title">
 					<?php esc_html_e( $this->boxtitle ) ?>
 				</div>
-				<div class="pirate-switch-box-content-hidden">
+				<div class="ps-box-content-hidden">
 					<?php
 					if ( $this->customizer_repeater_image_control == true ) {
 						$this->image_control();
@@ -185,30 +190,30 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 
 					if($this->customizer_repeater_color_control==true){
 						$this->input_control(array(
-							'label' => __('Color','pirate-switch'),
+							'label' => apply_filters('repeater_input_labels_filter', esc_html__('Color','pirate-switch'), $this->id, 'customizer_repeater_color_control' ),
 							'class' => 'pirate_switch_color_control',
-							'type'  => 'color',
+                            'type'  => apply_filters('repeater_input_types_filter', 'color', $this->id, 'customizer_repeater_color_control' ),
 							'sanitize_callback' => 'sanitize_hex_color'
 						) );
 					}
 
 					if ( $this->customizer_repeater_text_control == true ) {
 						$this->input_control( array(
-							'label' => __( 'Text', 'pirate-switch' ),
+							'label' => apply_filters('repeater_input_labels_filter', esc_html__( 'Text', 'pirate-switch' ), $this->id, 'customizer_repeater_text_control' ),
 							'class' => 'pirate_switch_text_control',
-							'type'  => 'textarea'
+							'type'  => apply_filters('repeater_input_types_filter', 'textarea', $this->id, 'customizer_repeater_text_control' ),
 						) );
 					}
 
 					if ( $this->customizer_repeater_link_control == true ) {
 						$this->input_control( array(
-							'label' => __( 'Link', 'pirate-switch' ),
-							'class' => 'pirate_switch_link_control'
+							'label' => apply_filters('repeater_input_labels_filter', esc_html__( 'Link', 'pirate-switch' ), $this->id, 'customizer_repeater_link_control' ),
+							'class' => 'pirate_switch_link_control',
+                            'type'  => apply_filters('repeater_input_types_filter', '', $this->id, 'customizer_repeater_link_control' ),
 						) );
 					} ?>
 
-					<input type="hidden" class="pirate_switch_box_id">
-					<button type="button" class="pirate_switch_general_control_remove_field button" style="display:none;">
+					<button type="button" class="ps-general-control-remove-field" style="display:none;">
 						<?php esc_html_e( 'Delete field', 'pirate-switch' ); ?>
 					</button>
 				</div>
@@ -238,12 +243,12 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 	}
 
 	private function image_control($value = ''){ ?>
-		<div class="customizer-repeater-image-control">
+		<div class="ps-image-control">
             <span class="customize-control-title">
                 <?php esc_html_e('Image','pirate-switch')?>
             </span>
-			<input type="text" class="widefat custom_media_url" value="<?php echo esc_attr( $value ); ?>">
-			<input type="button" class="button button-primary custom_media_button_pirate_switch" value="<?php esc_html_e('Upload Image','pirate-switch'); ?>" />
+			<input type="text" class="widefat ps-custom-media-url" value="<?php echo esc_attr( $value ); ?>">
+			<input type="button" class="button button-secondary ps-custom-media-button" value="<?php esc_html_e('Upload Image','pirate-switch'); ?>" />
 		</div>
 		<?php
 	}
