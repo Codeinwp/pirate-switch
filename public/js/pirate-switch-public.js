@@ -1,40 +1,37 @@
+jQuery(document).ready(function ($) {
 
-jQuery( document ).ready( function($) {
+    $('#pirate-switch-open-icon').on("click", function () {
 
-    $( '#pirate-switch-open-icon' ).on( "click", function() {
-
-		var $switchMainBox = $( '#pirate-switch-main-box, #pirate-switch-open-icon' ),
-			hideClass = 'pirate-switch-opened';
-		$switchMainBox.toggleClass( hideClass );
-
-	});
+        var $switchMainBox = $('#pirate-switch-main-box, #pirate-switch-open-icon'),
+            hideClass = 'pirate-switch-opened';
+        $switchMainBox.toggleClass(hideClass);
 
 
-	setSidebarHeight();
+    });
+
+    $('head').append('<style class="pirate_switch_css_container">test</style>')
 
 
-	$( '.pirate-switch-color-box' ).on( "click", function() {
-		
-		var pirate_switch_colors_elements_color_values = jQuery('#pirate_switch_colors_elements_color_values').val();
+    setSidebarHeight();
 
-		if( ( typeof pirate_switch_colors_elements_color_values != 'undefined' ) && ( pirate_switch_colors_elements_color_values != '' ) ) {
-			jQuery(pirate_switch_colors_elements_color_values).not( "#pirate-switch-main-box *, #wpadminbar *" ).css('color',jQuery(this).attr('color-attr'));
-		}
-		
-		var pirate_switch_colors_elements_background_values = jQuery('#pirate_switch_colors_elements_background_values').val();
-		
-		if( ( typeof pirate_switch_colors_elements_background_values != 'undefined' ) && ( pirate_switch_colors_elements_background_values != '' ) ) {
-			jQuery(pirate_switch_colors_elements_background_values).not( "#pirate-switch-main-box *, #wpadminbar *" ).css('background',jQuery(this).attr('color-attr'));
-		}	
-	});
+    var cssContainer = $('.pirate_switch_css_container')
 
+    $('.pirate-switch-color-box').on("click", function () {
+
+        $(cssContainer).empty();
+
+        var cssCode = jQuery(this).next().val();
+
+        if ((cssCode != 'undefined') && (cssCode != ''))
+            $(cssContainer).append(cssCode);
+    });
 });
 
 function setSidebarHeight() {
-	windowHeight = jQuery(window).innerHeight();
-	jQuery('#pirate-switch-content').css('max-height', windowHeight);
+    windowHeight = jQuery(window).innerHeight();
+    jQuery('#pirate-switch-content').css('max-height', windowHeight);
 }
 
-jQuery( window ).resize(function() {
-	setSidebarHeight();
+jQuery(window).resize(function () {
+    setSidebarHeight();
 });
