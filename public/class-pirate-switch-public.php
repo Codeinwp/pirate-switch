@@ -134,9 +134,26 @@ class Pirate_Switch_Public {
 
 					<?php
 						/* Layouts/Demos */
+						$pirate_switch_buy_button_target =  get_theme_mod( 'pirate_switch_buy_button_new_tab' );
+						$pirate_switch_buy_button_text =  get_theme_mod( 'pirate_switch_buy_button_title' );
+						$pirate_switch_buy_button_link =  get_theme_mod( 'pirate_switch_buy_button_link' );
 						$pirate_switch_layouts_demos_title = get_theme_mod( 'pirate_switch_layouts_demos_title' );
 						$pirate_switch_layouts_demos_text = get_theme_mod( 'pirate_switch_layouts_demos_text' );
 						$pirate_switch_layouts_demos_box = get_theme_mod( 'pirate_switch_layouts_demos_box' );
+
+
+						if( ! empty( $pirate_switch_buy_button_link ) && ! empty( $pirate_switch_buy_button_text ) ) {
+						    $target ='';
+							if( isset($pirate_switch_buy_button_target) && $pirate_switch_buy_button_target == 1 ) {
+								$target = 'target="_blank"';
+							}
+
+							echo '<div class="pirate-switch-large-box pirate-switch-layouts-demos">';
+
+							echo '<a href="'. esc_url( $pirate_switch_buy_button_link ) .'" class="pirate-switch-buy-button"'. $target .'>' . esc_html( $pirate_switch_buy_button_text ) . '</a>';
+							echo '</div>';
+
+                        }
 
 						if( ! empty( $pirate_switch_layouts_demos_title ) || ! empty( $pirate_switch_layouts_demos_text ) || ! pirate_switch_general_repeater_is_empty( $pirate_switch_layouts_demos_box ) ) {
 							echo '<div class="pirate-switch-large-box pirate-switch-layouts-demos">';
