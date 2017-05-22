@@ -63,7 +63,7 @@
 	height: 100%;
     overflow-x: auto;
     overflow-y: auto;
-	width: 267px;
+	width: 269px;
 }
 
 .pirate-switch-content-wrapper {
@@ -124,7 +124,7 @@
 	position: relative;
 }
 .pirate-switch-large-box:after {
-	border-top: 1px solid #ededed;
+	border-top: 1px solid #c6c6c6;
 	content: "";
 	margin: 0 auto;
 	position: absolute;
@@ -149,6 +149,9 @@
 	margin: 15px 0;
 	color: #fff;
 	font-size: 14px;
+}
+a.pirate-switch-layout-button:visited {
+	color: #fff;
 }
 .pirate-switch-layout-button:hover, .pirate-switch-style-button:hover, .pirate-switch-layout-button:focus, .pirate-switch-style-button:focus {
 	background-color: #77c4d4;
