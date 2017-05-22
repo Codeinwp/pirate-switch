@@ -120,7 +120,7 @@
 }
 
 .pirate-switch-large-box {
-	padding: 30px 0 25px;
+	padding: 30px 2px 25px;
 	position: relative;
 }
 .pirate-switch-large-box:after {
@@ -135,7 +135,7 @@
 	z-index: -1;
 }
 .pirate-switch-large-box.pirate-switch-styles {
-	padding: 30px 0 10px;
+	padding: 30px 2px 10px;
 }
 
 .pirate-switch-layout-button {
@@ -150,7 +150,7 @@
 	color: #fff;
 	font-size: 14px;
 }
-a.pirate-switch-layout-button:visited {
+.pirate-switch-large-box a:visited {
 	color: #fff;
 }
 .pirate-switch-layout-button:hover, .pirate-switch-style-button:hover, .pirate-switch-layout-button:focus, .pirate-switch-style-button:focus {
@@ -175,7 +175,7 @@ a.pirate-switch-layout-button:visited {
 	transition: all 1s ease;
 }
 .pirate-switch-layouts-demos-box a:hover {
-	opacity: 0.;
+	opacity: 0.85;
     filter: alpha(opacity=85); /* For IE8 and earlier */
 }
 
@@ -216,6 +216,10 @@ a.pirate-switch-layout-button:visited {
 
 .pirate-switch-style-button:nth-child(2n+1) {
 	float: right;
+}
+
+.pirate-switch-style-button:nth-child(2n) {
+	float: left;
 }
 
 .pirate-switch-styles-ul li a {
@@ -299,4 +303,21 @@ a.pirate-switch-layout-button:visited {
 		-moz-border-radius: 0 0 0 3px;
 		border-radius: 0 0 0 3px;
 	}
+}
+
+.pirate-switch-buy-button:hover {
+	background-color: #e96656;
+}
+.pirate-switch-buy-button {
+	transition: all .3s ease-out;
+	width: 100%;
+	display: block;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 3px;
+	margin: 15px 0;
+	color: #fff;
+	font-size: 14px;
+	background-color: #f13457;
+
 }
