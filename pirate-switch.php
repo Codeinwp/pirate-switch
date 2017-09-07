@@ -1,7 +1,5 @@
 <?php
-
 /**
-
  * @link              - 
  * @since             1.0.0
  * @package           pirate-switch

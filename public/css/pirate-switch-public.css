@@ -1,4 +1,4 @@
-.pirate-switch-container {
+.ps-container {
 	font-family: "Open Sans", sans-serif;
 	position: fixed;
 	z-index: 9999999;
@@ -6,7 +6,7 @@
 	bottom: 0;
 	left: -300px;
 	width: 300px;
-	padding: 0 25px;
+	padding: 0 15px;
 	color: #000;
 	font-size: 12px;
 	-ms-box-sizing: border-box;
@@ -22,11 +22,54 @@
     box-shadow: -3px 0px 50px -2px rgba(0, 0, 0, 0.14);
     background: #fff;
 }
-.pirate-switch-container.pirate-switch-opened {
+.ps-container.ps-opened {
 	left: 0;
 }
 
-#pirate-switch-open-icon {
+.ps-ribbon {
+	font-weight: 400;
+	font-size: 12px;
+	padding: 10px 5px;
+	margin: 0 -17px;
+	color: #555555;
+	background: #f6f6f6;
+	text-align: center;
+	font-family: "Open Sans", sans-serif !important;
+}
+
+.ps-ribbon h1 {
+	font-size: 21px;
+}
+.ps-ribbon p,
+.ps-ribbon h2 {
+	margin-bottom: 0;
+	font-size: 16px;
+}
+.ps-ribbon h3 {
+	font-size: 14px;
+}
+.ps-ribbon h4 {
+	font-size: 12px;
+}
+.ps-ribbon h5 {
+	font-size: 11px;
+}
+.ps-ribbon h6 {
+	font-size: 10px;
+}
+
+
+.ps-ribbon h1,
+.ps-ribbon h2,
+.ps-ribbon h3,
+.ps-ribbon h4,
+.ps-ribbon h5,
+.ps-ribbon h6,
+.ps-ribbon p {
+	line-height: initial;
+}
+
+#ps-open-icon {
 	position: absolute;
 	top: 150px;
 	right: -50px;
@@ -38,14 +81,14 @@
 	-moz-border-radius: 0 3px 3px 0;
 	border-radius: 0 3px 3px 0;
 }
-#pirate-switch-open-icon:hover {
+#ps-open-icon:hover {
 	background: #FD1B45;
 }
 
-#pirate-switch-open-icon.pirate-switch-opened:before {
+#ps-open-icon.ps-opened:before {
 	content: "\f0d9";
 }
-.pirate-switch-open:before {
+.ps-open:before {
 	content: "\f013";
     float: left;
     font-family: fontawesome;
@@ -59,23 +102,19 @@
     margin: 10px;
 }
 
-.pirate-switch-content {
-	height: 100%;
-    overflow-x: auto;
-    overflow-y: auto;
-	width: 269px;
+.ps-content {
+	height: 100vh;
 }
 
-.pirate-switch-content-wrapper {
-	overflow: hidden;
+.ps-content-wrapper {
 	max-height:100%;
 }
 
-.pirate-switch-container.pirate-switch-opened {
+.ps-container.ps-opened {
 	left: 0;
 }
 
-#pirate-switch-open-icon {
+#ps-open-icon {
 	position: absolute;
 	top: 150px;
 	right: -50px;
@@ -87,10 +126,10 @@
 	-moz-border-radius: 0 3px 3px 0;
 	border-radius: 0 3px 3px 0;
 }
-#pirate-switch-open-icon:hover {
+#ps-open-icon:hover {
 	background: #FD1B45;
 }
-.pirate-switch-open:before {
+.ps-open:before {
 	content: "\f013";
     float: left;
     font-family: fontawesome;
@@ -104,26 +143,27 @@
     margin: 10px;
 }
 
-.pirate-switch-content ::-webkit-scrollbar {
+.ps-content ::-webkit-scrollbar {
 	width: 0px;  /* for vertical scrollbars */
 	height: 0px; /* for horizontal scrollbars */
 }
-.pirate-switch-content ::-webkit-scrollbar-track {
+.ps-content ::-webkit-scrollbar-track {
 	background: rgba(255, 255, 255, 0.0);
 }
-.pirate-switch-content ::-webkit-scrollbar-thumb {
+.ps-content ::-webkit-scrollbar-thumb {
 	background: rgba(255, 255, 255, 0.0);
 }
 
-.pirate-switch-clearfix {
+.ps-clearfix {
 	clear:both;
 }
 
-.pirate-switch-large-box {
-	padding: 30px 2px 25px;
+.ps-large-box {
+	padding: 10px 2px 15px;
 	position: relative;
 }
-.pirate-switch-large-box:after {
+
+.ps-large-box:not(.ps-button-cta):after {
 	border-top: 1px solid #c6c6c6;
 	content: "";
 	margin: 0 auto;
@@ -131,14 +171,18 @@
 	top: 100%;
 	left: 0;
 	right: 0;
-	width:	 75%;
+	width: 75%;
 	z-index: -1;
 }
-.pirate-switch-large-box.pirate-switch-styles {
-	padding: 30px 2px 10px;
+.ps-large-box.ps-button-cta:after,
+.ps-large-box.ps-child-themes:after {
+	border: none;
+	margin: 0;
+	position: static;
+	width: 0;
 }
 
-.pirate-switch-layout-button {
+.ps-layout-button {
 	transition: all .3s ease-out;
 	width: 100%;
 	display: block;
@@ -150,22 +194,22 @@
 	color: #fff;
 	font-size: 14px;
 }
-.pirate-switch-large-box a:visited {
+.ps-large-box a:visited {
 	color: #fff;
 }
-.pirate-switch-layout-button:hover, .pirate-switch-style-button:hover, .pirate-switch-layout-button:focus, .pirate-switch-style-button:focus {
+.ps-layout-button:hover, .ps-style-button:hover, .ps-layout-button:focus, .ps-style-button:focus {
 	background-color: #77c4d4;
 	color: #fff;
 }
-.pirate-switch-layout-button:last-of-type {
+.ps-layout-button:last-of-type {
 	margin-bottom: 0;
 }
 
-.pirate-switch-layouts-demos-box img {
+.ps-layouts-demos-box img {
 	width: 128px;
 	height: 100px;
 }
-.pirate-switch-layouts-demos-box a {
+.ps-layouts-demos-box a {
 	display:block;
 	border: 1px solid transparent;
 	-webkit-transition: all 1s ease;
@@ -174,33 +218,33 @@
 	-ms-transition: all 1s ease;
 	transition: all 1s ease;
 }
-.pirate-switch-layouts-demos-box a:hover {
+.ps-layouts-demos-box a:hover {
 	opacity: 0.85;
     filter: alpha(opacity=85); /* For IE8 and earlier */
 }
 
-.pirate-switch-title {
+.ps-title {
 	font-size: 18px;
     color: #555555;
     text-align: center;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
-.pirate-switch-text {
+.ps-text {
 	font-size: 13px;
     color: #000;
     line-height: 20px;
-    margin-bottom: 35px;
+    margin-bottom: 10px;
     display: block;
     text-align: center;
 }
-.pirate-switch-styles-ul, .pirate-switch-color-boxes {
+.ps-styles-ul, .ps-color-boxes {
 	margin: 0;
 	padding: 0;
 	width: 100%;
 	position: relative;
 }
-.pirate-switch-style-button {
+.ps-style-button {
 	transition: all .3s ease-out;
 	width:47%;
 	display: inline-block;
@@ -214,39 +258,39 @@
 	font-size: 14px;
 }
 
-.pirate-switch-style-button:nth-child(2n+1) {
+.ps-style-button:nth-child(2n+1) {
 	float: right;
 }
 
-.pirate-switch-style-button:nth-child(2n) {
+.ps-style-button:nth-child(2n) {
 	float: left;
 }
 
-.pirate-switch-styles-ul li a {
+.ps-styles-ul li a {
 	color: #808080;
 	font-size: 13px;
 }
-.pirate-switch-styles-ul li:hover {
+.ps-styles-ul li:hover {
 	background:#ddd;
 	color: #000;
 }
 
-.pirate-switch-color-boxes {
+.ps-color-boxes {
 	text-align: center;
 }
 
-.pirate-switch-color-boxes li {
+.ps-color-boxes li {
 	display: inline-block;
 	list-style: none;
 	width: 16%;
 	margin-right: 5%;
 }
 
-.pirate-switch-color-boxes li:nth-child(5n), .pirate-switch-color-boxes li:last-child {
+.ps-color-boxes li:nth-child(5n), .ps-color-boxes li:last-child {
 	margin-right: 0;
 }
 
-.pirate-switch-color-box {
+.ps-color-box {
 	transition: all .3s ease-out;
 	cursor: pointer;
 	margin: 0 auto;
@@ -255,10 +299,10 @@
 	margin: 0 auto;
 	border-radius: 3px;
 }
-.pirate-switch-color-box:hover {
+.ps-color-box:hover {
 	border: 1px solid #fff;
 }
-.pirate-switch-child-theme-button {
+.ps-child-theme-button {
 	border-radius: 3px;
 	overflow:hidden;
 	position: relative;
@@ -267,10 +311,10 @@
 	height: 150px;
 	display: block;
 }
-.pirate-switch-child-theme-button:hover > .pirate-switch-child-themes-overlay {
+.ps-child-theme-button:hover > .ps-child-themes-overlay {
 	opacity: 0.0;
 }
-.pirate-switch-child-themes-overlay {
+.ps-child-themes-overlay {
 	transition: all .3s ease-out;
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
@@ -278,23 +322,23 @@
 }
 
 @media (max-width: 480px) {
-	.pirate-switch-container {
+	.ps-container {
 		width: 100%;
 		left: -100%;
 	}
 
-	.pirate-switch-container.pirate-switch-opened {
+	.ps-container.ps-opened {
 		left: 0;
 	}
 
-	.pirate-switch-content {
+	.ps-content {
 		width: 100%;
 		padding: 0 25px;
 	}
-	#pirate-switch-open-icon.pirate-switch-opened {
+	#ps-open-icon.ps-opened {
 		z-index: 100;
 	}
-	#pirate-switch-open-icon.pirate-switch-opened {
+	#ps-open-icon.ps-opened {
 		position: fixed;
 		top: 0px;
 		left: auto;
@@ -305,19 +349,29 @@
 	}
 }
 
-.pirate-switch-buy-button:hover {
+.ps-buy-button:hover {
 	background-color: #e96656;
 }
-.pirate-switch-buy-button {
+.ps-buy-button {
 	transition: all .3s ease-out;
 	width: 100%;
 	display: block;
 	text-align: center;
 	line-height: 35px;
 	border-radius: 3px;
-	margin: 15px 0;
+	margin: 0 0 15px;
 	color: #fff;
 	font-size: 14px;
 	background-color: #f13457;
+}
 
+.ps-child-theme-subcontainer {
+	height: inherit;
+	overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+	.ps-container {
+		display:none;
+	}
 }

@@ -157,7 +157,7 @@ class Pirate_Switch {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles', 999 );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		
-		$this->loader->add_action( 'wp_head', $plugin_public, 'pirate_switch_display_block' );
+		$this->loader->add_action( 'wp_head', $plugin_public, 'render' );
 
 	}
 
