@@ -1,8 +1,10 @@
 jQuery( document ).ready( function ( $ ) {
+
+    if( window.location.hash.substr(1) === 'switcher-open' ) {
+        toggleSwitcher();
+    }
     $( '#ps-open-icon' ).on( "click", function () {
-        var $switchMainBox = $( '#ps-main-box, #ps-open-icon' ),
-            hideClass = 'ps-opened';
-        $switchMainBox.toggleClass( hideClass );
+      toggleSwitcher();
     } );
 
     $( 'head' ).append( '<style class="pirate_switch_css_container">test</style>' )
@@ -31,9 +33,6 @@ function setSidebarHeight() {
     var childThemeContainer = jQuery( '.ps-child-theme-subcontainer' );
     jQuery( '.ps-large-box:not(.ps-child-themes)' ).each( function () {
         height = height - jQuery( this ).outerHeight();
-
-        console.log('panel')
-
     } );
 
     jQuery( '.ps-child-themes > p' ).each( function () {
@@ -49,3 +48,9 @@ function setSidebarHeight() {
 jQuery( window ).resize( function () {
     setSidebarHeight();
 } );
+
+function toggleSwitcher() {
+    var $switchMainBox = jQuery( '#ps-main-box, #ps-open-icon' ),
+        hideClass = 'ps-opened';
+    $switchMainBox.toggleClass( hideClass );
+}

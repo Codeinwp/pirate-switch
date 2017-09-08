@@ -37,6 +37,10 @@
 	font-family: "Open Sans", sans-serif !important;
 }
 
+.ps-ribbon.ps-no-background {
+	background:none;
+}
+
 .ps-ribbon h1 {
 	font-size: 21px;
 }
@@ -159,8 +163,12 @@
 }
 
 .ps-large-box {
-	padding: 10px 2px 15px;
+	padding: 10px 2px 10px;
 	position: relative;
+}
+
+.ps-button-cta {
+	padding-bottom: 0;
 }
 
 .ps-large-box:not(.ps-button-cta):after {
@@ -194,7 +202,10 @@
 	color: #fff;
 	font-size: 14px;
 }
-.ps-large-box a:visited {
+.ps-layout-button:first-of-type {
+	margin-top: 0;
+}
+.ps-large-box a:not(.ps-buy-button):visited {
 	color: #fff;
 }
 .ps-layout-button:hover, .ps-style-button:hover, .ps-layout-button:focus, .ps-style-button:focus {
@@ -231,12 +242,11 @@
     margin-bottom: 5px;
 }
 .ps-text {
-	font-size: 13px;
-    color: #000;
-    line-height: 20px;
+	font-size: 11px;
+	line-height: initial;
     margin-bottom: 10px;
     display: block;
-    text-align: center;
+	font-weight: 400;
 }
 .ps-styles-ul, .ps-color-boxes {
 	margin: 0;
@@ -350,7 +360,10 @@
 }
 
 .ps-buy-button:hover {
-	background-color: #e96656;
+	color: #f13457;
+	background-color: #fff;
+	border: 1px solid #f13457;
+
 }
 .ps-buy-button {
 	transition: all .3s ease-out;
@@ -363,6 +376,7 @@
 	color: #fff;
 	font-size: 14px;
 	background-color: #f13457;
+	border: 1px solid #f13457;
 }
 
 .ps-child-theme-subcontainer {

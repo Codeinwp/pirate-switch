@@ -192,7 +192,7 @@ private final function render_buttons_section( $section_type ) {
 
 						$pirate_switch_new_tab = $this->check_target( $target_mod, 1 );
 
-						$output .= '<a class="' . $btn_class . '" href="' . $item->link . '" target="' . $pirate_switch_new_tab . '">' . $item->text . '</a>';
+						$output .= '<a class="' . $btn_class . '" href="' . $item->link . '#switcher-open" target="' . $pirate_switch_new_tab . '">' . $item->text . '</a>';
 
 					}
 				}
@@ -249,14 +249,17 @@ private final function render_buttons_section( $section_type ) {
 	$subtitle = get_theme_mod( $subtitle_theme_mod );
 	$output   = '';
 
-	if ( ! empty( $title ) ) {
-		$output .= '<p class="ps-title">' . $title . '</p>';
-	}
+	if( ! empty( $title ) || ! empty( $subtitle ) ) {
+		$output .= '<div class="ps-ribbon ps-no-background">';
+		if ( ! empty( $title ) ) {
+			$output .= '<p class="ps-title">' . $title . '</p>';
+		}
 
-	if ( ! empty( $subtitle ) ) {
-		$output .= '<p class="ps-text">' . $subtitle . '</p>';
+		if ( ! empty( $subtitle ) ) {
+			$output .= '<h5 class="ps-text">' . $subtitle . '</h5>';
+		}
+		$output .= '</div>';
 	}
-
 	return $output;
 }
 
