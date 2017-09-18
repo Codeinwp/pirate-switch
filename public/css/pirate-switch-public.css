@@ -4,9 +4,8 @@
 	z-index: 9999999;
 	top: 0;
 	bottom: 0;
-	left: -300px;
-	width: 300px;
-	padding: 0 15px;
+	right: -350px;
+	width: 350px;
 	color: #000;
 	font-size: 12px;
 	-ms-box-sizing: border-box;
@@ -23,7 +22,46 @@
     background: #fff;
 }
 .ps-container.ps-opened {
-	left: 0;
+	right: 0;
+}
+
+#ps-open-icon {
+	position: absolute;
+	top: 150px;
+	left: -50px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background: #f13457;
+	border-radius: 3px 0 0 3px;
+}
+#ps-open-icon:hover {
+	background: #FD1B45;
+}
+
+#ps-open-icon.ps-opened:before {
+	content: "\f0da";
+}
+.ps-open:before {
+	content: "\f013";
+	float: left;
+	font-family: fontawesome;
+	color: #FFF;
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: lighter!important;
+	text-align: center;
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+}
+
+.ps-content {
+	margin-right: -17px;
+	padding: 0 15px;
+	overflow-y: scroll;
+	overflow-x: visible;
+	height: 100vh;
 }
 
 .ps-ribbon {
@@ -71,80 +109,23 @@
 .ps-ribbon h6,
 .ps-ribbon p {
 	line-height: initial;
+	margin: 0 0 5px;
+	padding:0;
 }
 
-#ps-open-icon {
-	position: absolute;
-	top: 150px;
-	right: -50px;
-	width: 50px;
-	height: 50px;
-	cursor: pointer;
-	background: #f13457;
-	-webkit-border-radius: 0 3px 3px 0;
-	-moz-border-radius: 0 3px 3px 0;
-	border-radius: 0 3px 3px 0;
-}
-#ps-open-icon:hover {
-	background: #FD1B45;
+.ps-ribbon h1:last-child,
+.ps-ribbon h2:last-child,
+.ps-ribbon h3:last-child,
+.ps-ribbon h4:last-child,
+.ps-ribbon h5:last-child,
+.ps-ribbon h6:last-child,
+.ps-ribbon p:last-child {
+	margin: 0;
 }
 
-#ps-open-icon.ps-opened:before {
-	content: "\f0d9";
-}
-.ps-open:before {
-	content: "\f013";
-    float: left;
-    font-family: fontawesome;
-    color: #FFF;
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: lighter!important;
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    margin: 10px;
-}
-
-.ps-content {
-	height: 100vh;
-}
 
 .ps-content-wrapper {
 	max-height:100%;
-}
-
-.ps-container.ps-opened {
-	left: 0;
-}
-
-#ps-open-icon {
-	position: absolute;
-	top: 150px;
-	right: -50px;
-	width: 50px;
-	height: 50px;
-	cursor: pointer;
-	background: #f13457;
-	-webkit-border-radius: 0 3px 3px 0;
-	-moz-border-radius: 0 3px 3px 0;
-	border-radius: 0 3px 3px 0;
-}
-#ps-open-icon:hover {
-	background: #FD1B45;
-}
-.ps-open:before {
-	content: "\f013";
-    float: left;
-    font-family: fontawesome;
-    color: #FFF;
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: lighter!important;
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    margin: 10px;
 }
 
 .ps-content ::-webkit-scrollbar {
@@ -316,10 +297,13 @@
 	border-radius: 3px;
 	overflow:hidden;
 	position: relative;
-	margin-bottom: 15px;
-	width: 100%;
-	height: 150px;
-	display: block;
+	width: 48%;
+	margin-right: 2%;
+	height: 100px;
+	display: inline-block;
+}
+.ps-child-theme-button:nth-child(2n + 1) {
+	margin-right: 0;
 }
 .ps-child-theme-button:hover > .ps-child-themes-overlay {
 	opacity: 0.0;
@@ -377,11 +361,6 @@
 	font-size: 14px;
 	background-color: #f13457;
 	border: 1px solid #f13457;
-}
-
-.ps-child-theme-subcontainer {
-	height: inherit;
-	overflow-x: auto;
 }
 
 @media (max-width: 768px) {

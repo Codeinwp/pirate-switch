@@ -332,7 +332,6 @@ private final function render_buttons_section( $section_type ) {
 		if ( ! empty( $items ) ) {
 			$items_decoded = json_decode( $items );
 			if ( ! empty( $items_decoded ) ) {
-				$output .= '<div class="ps-child-theme-subcontainer">';
 				foreach ( $items_decoded as $item ) {
 					if ( ! empty( $item->image_url ) && ! empty( $item->link ) ) {
 
@@ -349,7 +348,6 @@ private final function render_buttons_section( $section_type ) {
 				}
 				$output .= $bottom_button;
 				$output .= '<div class="ps-clearfix"></div>';
-				$output .= '</div><!-- END .ps-child-theme-subcontainer -->';
 			}
 		}
 		$output .= '</div><!-- END .ps-child-themes -->';
