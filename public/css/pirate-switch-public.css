@@ -301,6 +301,7 @@
 	margin-right: 2%;
 	height: 100px;
 	display: inline-block;
+	margin-bottom: 4px;
 }
 .ps-child-theme-button:nth-child(2n + 1) {
 	margin-right: 0;
