@@ -19,6 +19,7 @@
 	webkit-box-shadow: -3px 0px 50px -2px rgba(0, 0, 0, 0.14);
     -moz-box-shadow: -3px 0px 50px -2px rgba(0, 0, 0, 0.14);
     box-shadow: -3px 0px 50px -2px rgba(0, 0, 0, 0.14);
+	padding-top: 15px;
     background: #fff;
 }
 .ps-container.ps-opened {
@@ -304,6 +305,7 @@
 }
 .ps-child-theme-button:nth-child(2n + 1) {
 	margin-right: 0;
+	float: right;
 }
 .ps-child-theme-button:hover > .ps-child-themes-overlay {
 	opacity: 0.0;
