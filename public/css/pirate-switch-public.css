@@ -19,7 +19,6 @@
 	webkit-box-shadow: -3px 0px 50px -2px rgba(0, 0, 0, 0.14);
     -moz-box-shadow: -3px 0px 50px -2px rgba(0, 0, 0, 0.14);
     box-shadow: -3px 0px 50px -2px rgba(0, 0, 0, 0.14);
-	padding-top: 15px;
     background: #fff;
 }
 .ps-container.ps-opened {
@@ -59,7 +58,7 @@
 
 .ps-content {
 	margin-right: -17px;
-	padding: 0 15px;
+	padding: 15px 15px 0;
 	overflow-y: scroll;
 	overflow-x: visible;
 	height: 100vh;
