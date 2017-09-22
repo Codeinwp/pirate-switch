@@ -68,7 +68,9 @@ class Pirate_Switch_Public {
 
         <div id="ps-main-box" class="ps-container">
 
-            <div id="ps-open-icon" class="ps-open"></div>
+            <div id="ps-open-icon" class="ps-open">
+                <div class="icon"></div>
+            </div>
 
             <div class="ps-content-wrapper">
 
@@ -350,7 +352,9 @@ private final function render_buttons_section( $section_type ) {
 				$output .= '<div class="ps-clearfix"></div>';
 			}
 		}
-		$output .= '</div><!-- END .ps-child-themes -->';
+		$output   .= '</div><!-- END .ps-child-themes -->';
+		$end_text = get_theme_mod( 'pirate_switch_end_text' );
+		$output   .= '<div class="ps-ending-tag-wrapper"><div class="ps-ending-tag">' . esc_html( $end_text ) . '</div></div>';
 	}
 	echo $output ;
 }
