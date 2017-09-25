@@ -7,13 +7,19 @@ jQuery( document ).ready( function ( $ ) {
         toggleSwitcher();
     } );
 
-    $( 'head' ).append( '<style class="pirate_switch_css_container">test</style>' )
+    $( 'head' ).append( '<style class="pirate_switch_css_container"></style>' );
 
-    var cssContainer = $( '.pirate_switch_css_container' )
+    var cssContainer = $( '.pirate_switch_css_container' );
 
     $( '.ps-color-box' ).on( "click", function () {
+        $(this).addClass('ps-color-effect');
+        setTimeout(
+            function() {
+                $('.ps-color-effect').removeClass('ps-color-effect');
+            },
+            250);
 
-        $( cssContainer ).empty();
+    $( cssContainer ).empty();
 
         var cssCode = jQuery( this ).next().val();
 
