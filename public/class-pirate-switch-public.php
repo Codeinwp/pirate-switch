@@ -68,7 +68,9 @@ class Pirate_Switch_Public {
 
         <div id="ps-main-box" class="ps-container">
 
-            <div id="ps-open-icon" class="ps-open"></div>
+            <div id="ps-open-icon" class="ps-open">
+                <div class="icon"></div>
+            </div>
 
             <div class="ps-content-wrapper">
 
@@ -91,6 +93,7 @@ class Pirate_Switch_Public {
 					// Render Child Theme Section.
 					$this->render_child_themes_section();
 
+					$this->render_ending_link();
 					?>
                 </div>
             </div>
@@ -304,8 +307,7 @@ private final function render_buttons_section( $section_type ) {
 
 			foreach ( $items_decoded as $item ) {
 				if ( ! empty( $item->color ) && ! empty( $item->text ) ) {
-					$output .= '<li><div class="ps-color-box" color-attr="' . $item->color . '" style="background-color:' . $item->color . '"></div><input type="hidden" value="' . $item->text . '" class="pirate_switch_css_style"></li>';
-
+					$output .= '<li><div class="ps-color-box" style="background-color:' . esc_attr( $item->color ) . '"></div><input type="hidden" value="' . $item->text . '" class="pirate_switch_css_style"></li>';
 				}
 			}
 
@@ -314,46 +316,57 @@ private final function render_buttons_section( $section_type ) {
 
 		$output .= '</div><!-- END .ps-colors -->';
 	}
-	echo wp_kses_post( $output );
+	echo $output;
 }
 
 	private final function render_child_themes_section() {
-	$items = get_theme_mod( 'pirate_switch_child_themes_box' );
-	//TODO: ADD THEME MODS FOR BOTTOM BUTTONS. SUGGEST MOVING TO RIGHT SIDE.
-	$bottom_button = $this->render_download_button( 'pirate_switch_bottom_button_title', 'pirate_switch_bottom_button_link', 'pirate_switch_bottom_button_new_tab', 'pirate_switch_bottom_button_text_ribbon', false );
+		$items = get_theme_mod( 'pirate_switch_child_themes_box' );
+		//TODO: ADD THEME MODS FOR BOTTOM BUTTONS. SUGGEST MOVING TO RIGHT SIDE.
+		$bottom_button = $this->render_download_button( 'pirate_switch_bottom_button_title', 'pirate_switch_bottom_button_link', 'pirate_switch_bottom_button_new_tab', 'pirate_switch_bottom_button_text_ribbon', false );
 
-	$output = '';
+		$output = '';
 
-	if ( ! $this->check_repeater( $items ) ) {
-		$output .= '<div class="ps-large-box ps-child-themes">';
+		if ( ! $this->check_repeater( $items ) ) {
+			$output .= '<div class="ps-large-box ps-child-themes">';
 
-		$output .= $this->render_section_title( 'pirate_switch_child_themes_title', 'pirate_switch_child_themes_text' );
+			$output .= $this->render_section_title( 'pirate_switch_child_themes_title', 'pirate_switch_child_themes_text' );
 
-		if ( ! empty( $items ) ) {
-			$items_decoded = json_decode( $items );
-			if ( ! empty( $items_decoded ) ) {
-				$output .= '<div class="ps-child-theme-subcontainer">';
-				foreach ( $items_decoded as $item ) {
-					if ( ! empty( $item->image_url ) && ! empty( $item->link ) ) {
+			if ( ! empty( $items ) ) {
+				$items_decoded = json_decode( $items );
+				if ( ! empty( $items_decoded ) ) {
+					foreach ( $items_decoded as $item ) {
+						if ( ! empty( $item->image_url ) && ! empty( $item->link ) ) {
 
-						$pirate_switch_new_tab = '_self';
+							$pirate_switch_new_tab = '_self';
 
-						$pirate_switch_child_themes_new_tab = get_theme_mod( 'pirate_switch_child_themes_new_tab', 1 );
+							$pirate_switch_child_themes_new_tab = get_theme_mod( 'pirate_switch_child_themes_new_tab', 1 );
 
-						if ( isset( $pirate_switch_child_themes_new_tab ) && $pirate_switch_child_themes_new_tab == 1 ) {
-							$pirate_switch_new_tab = '_blank';
+							if ( isset( $pirate_switch_child_themes_new_tab ) && $pirate_switch_child_themes_new_tab == 1 ) {
+								$pirate_switch_new_tab = '_blank';
+							}
+
+							$output .= '<a class="ps-child-theme-button" href="' . $item->link . '" target="' . $pirate_switch_new_tab . '"><div class="ps-child-themes-overlay"></div><img src=" ' . $item->image_url . ' "/></a>';
 						}
-
-						$output .= '<a class="ps-child-theme-button" href="' . $item->link . '" target="' . $pirate_switch_new_tab . '"><div class="ps-child-themes-overlay"></div><img src=" ' . $item->image_url . ' "/></a>';
 					}
+					$output .= $bottom_button;
+					$output .= '<div class="ps-clearfix"></div>';
 				}
-				$output .= $bottom_button;
-				$output .= '<div class="ps-clearfix"></div>';
-				$output .= '</div><!-- END .ps-child-theme-subcontainer -->';
 			}
+			$output .= '</div><!-- END .ps-child-themes -->';
 		}
-		$output .= '</div><!-- END .ps-child-themes -->';
+		if( ! empty( $output ) ) {
+			echo $output;
+		}
 	}
-	echo $output ;
-}
+	private final function render_ending_link() {
+	    $output = '';
+		$text = get_theme_mod( 'pirate_switch_end_text' );
+		$link = get_theme_mod( 'pirate_switch_end_link' );
+		if( ! empty ( $text ) || ! empty( $link ) ) {
+			$output .= '<div class="ps-ending-tag-wrapper"><a class="ps-ending-tag" href="' . esc_url( $link ) . '">' . esc_html( $text ) . '</a></div>';
+		}
+		if( ! empty( $output ) ) {
+		    echo $output;
+        }
+    }
 }
