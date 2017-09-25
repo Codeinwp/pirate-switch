@@ -8,7 +8,7 @@
  * Plugin Name:       Pirate Switch
  * Plugin URI:        -
  * Description:       A simple, intuitive, and powerful plugin that allows you to add a style switcher on your site.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Themeisle
  * Author URI:        themeisle.com
  * License:           GPL-2.0+
