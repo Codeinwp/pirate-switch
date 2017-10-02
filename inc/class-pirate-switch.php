@@ -55,7 +55,7 @@ class Pirate_Switch {
 	public function __construct() {
 
 		$this->plugin_name = 'pirate-switch';
-		$this->version = '1.0.0';
+		$this->version = PIRATE_SWITCH_VERSION;
 
 		$this->load_dependencies();
 		$this->set_locale();
