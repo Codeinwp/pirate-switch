@@ -103,6 +103,10 @@
 	padding: 12px 2px 25px;
 	position: relative;
 }
+.ps-large-box:first-child {
+	padding-top: 45px;
+}
+
 .ps-colors {
 	padding-bottom: 34px;
 }
