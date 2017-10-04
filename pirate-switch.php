@@ -29,7 +29,7 @@ if ( ! defined( 'PIRATE_SWITCH_PATH' ) ) {
 
 /* Version */
 if ( ! defined( 'PIRATE_SWITCH_VERSION' ) ) {
-define("PIRATE_SWITCH_VERSION","1.0.5");
+define("PIRATE_SWITCH_VERSION","1.0.6");
 }
 
 /* URL */

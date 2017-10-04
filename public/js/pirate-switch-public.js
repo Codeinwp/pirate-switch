@@ -26,6 +26,10 @@ jQuery( document ).ready( function ( $ ) {
         if ( (cssCode != 'undefined') && (cssCode != '') )
             $( cssContainer ).append( cssCode );
     } );
+
+    if( self!==top ) {
+        $('.ps-button-cta').css('display', 'none');
+    }
 } );
 
 function toggleSwitcher() {
