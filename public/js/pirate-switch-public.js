@@ -28,7 +28,7 @@ jQuery( document ).ready( function ( $ ) {
     } );
 
     if( self!==top ) {
-        $('.ps-button-cta').css('display', 'none');
+        $('.ps-button-cta').remove();
     }
 } );
 
