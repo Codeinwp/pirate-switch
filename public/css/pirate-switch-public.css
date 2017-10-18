@@ -352,3 +352,30 @@
 		-webkit-transform: scale3d(1, 1, 1);
 	}
 }
+
+@media screen and (max-width: 1280px) {
+	.ps-container {
+		right: -280px;
+		width: 280px;
+	}
+	.ps-content {
+		padding:0 10px;
+		width: 295px;
+	}
+
+	.ps-color-box {
+		height: 35px;
+		width: 35px;
+		margin-right: 0;
+		padding: 0 10px;
+	}
+
+	.ps-child-theme-button {
+		width: 128px;
+	}
+
+	.ps-color-boxes li {
+		width: 22%;
+		margin-right: 0;
+	}
+}
