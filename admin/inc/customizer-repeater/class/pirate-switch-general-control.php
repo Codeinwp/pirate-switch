@@ -55,11 +55,11 @@ class Pirate_Switch_General_Repeater extends WP_Customize_Control {
 	/*Enqueue resources for the control*/
 	public function enqueue() {
 
-        wp_enqueue_style( 'customizer-repeater-admin-stylesheet', plugin_dir_url( __DIR__ ) . 'css/style.css','1.0.0' );
+        wp_enqueue_style( 'customizer-repeater-admin-stylesheet_ps', plugin_dir_url( __DIR__ ) . 'css/style.css','1.0.0' );
 
 		wp_enqueue_style( 'wp-color-picker' );
 
-		wp_enqueue_script( 'customizer-repeater-script', plugin_dir_url( __DIR__ ) . 'js/customizer_repeater.js', array('jquery', 'jquery-ui-draggable', 'wp-color-picker' ), '1.0.1', true  );
+		wp_enqueue_script( 'customizer-repeater-script-ps', plugin_dir_url( __DIR__ ) . 'js/customizer_repeater_ps.js', array('jquery', 'jquery-ui-draggable', 'wp-color-picker' ), '1.0.1', true  );
 
 	}
 
