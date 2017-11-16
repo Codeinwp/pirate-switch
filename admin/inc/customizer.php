@@ -2,7 +2,9 @@
 require_once( plugin_dir_path( __FILE__ ) . 'customizer-repeater/inc/customizer.php' );
 
 function pirate_switch_customize_register( $wp_customize ) {
-
+	if( pirate_switch_is_demo_user() ) {
+		return false;
+	}
     /* Add Pirate Switch panel */
     $wp_customize->add_panel( 'panel_pirate_switch', array(
         'title'    => esc_html__( 'Pirate Switch', 'pirate-switch' ),

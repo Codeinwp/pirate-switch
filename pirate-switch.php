@@ -63,6 +63,19 @@ register_deactivation_hook( __FILE__, 'pirate_switch_deactivate' );
 require plugin_dir_path( __FILE__ ) . 'inc/class-pirate-switch.php';
 
 /**
+ * Check if user role is 'ti_demo_user'
+ *
+ * @return bool
+ */
+function pirate_switch_is_demo_user() {
+	$user = wp_get_current_user();
+	if ( in_array( 'ti_demo_user', (array) $user->roles ) ) {
+		return true;
+	}
+	return false;
+}
+
+/**
  * Begins execution of the plugin.
  *
  * Since everything within the plugin is registered via hooks,
@@ -72,9 +85,7 @@ require plugin_dir_path( __FILE__ ) . 'inc/class-pirate-switch.php';
  * @since    1.0.0
  */
 function pirate_switch_run() {
-
-	$plugin = new Pirate_Switch();
-	$plugin->run();
-
+		$plugin = new Pirate_Switch();
+		$plugin->run();
 }
-pirate_switch_run();
+add_action( 'init', 'pirate_switch_run' );
