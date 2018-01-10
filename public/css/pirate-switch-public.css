@@ -130,7 +130,7 @@
 	margin: 0 -20px;
 }
 .ps-ending-tag-wrapper:before {
-    margin: 0 -20px 0 -15px;
+    margin: 0;
 }
 .ps-large-box.ps-button-cta:after,
 .ps-large-box.ps-child-themes:after {
@@ -278,9 +278,10 @@
 
 .ps-ending-tag-wrapper {
 	padding: 18px 0 0;
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
+	margin: 0 -15px;
 }
 .ps-ending-tag:focus,
 .ps-ending-tag:visited,
