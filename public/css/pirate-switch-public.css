@@ -37,10 +37,11 @@
 }
 
 #ps-open-icon .icon {
-	background: url(icons.png) 2px -22px no-repeat;
+	background: url(icons.png) 4px -21px no-repeat;
 	width: 30px;
 	height: 30px;
 	margin: 10px auto 0;
+	background-size: 24px 50px;
 }
 
 #ps-open-icon:hover,
@@ -49,10 +50,13 @@
 }
 
 #ps-open-icon.ps-opened .icon {
-	background: url(icons.png) 3px 5px no-repeat;
+	background-image: url(icons.png);
+	background-repeat: no-repeat;
 	width: 30px;
 	height: 30px;
 	margin: 10px auto 0;
+	background-position: 5px 7px;
+	background-size: 24px 50px;
 }
 
 .ps-content {
